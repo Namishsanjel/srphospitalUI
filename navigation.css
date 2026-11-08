@@ -1,0 +1,127 @@
+html { scrollbar-gutter: stable; }
+html.navigation-open { overflow: hidden; }
+.utility-bar { position: relative; z-index: 61; }
+.site-header.everwell-navigation {
+  --nav-gutter: max(22px, min(6.3vw, 92px), calc((100vw - 1440px) / 2));
+  position: relative;
+  z-index: 60;
+  background: #fff;
+}
+.site-header.everwell-navigation .header-inner { width: var(--container); height: 84px; gap: 0; }
+.site-header.everwell-navigation .desktop-nav { display: flex; gap: clamp(18px, 1.8vw, 28px); margin-left: auto; }
+.site-header.everwell-navigation .desktop-nav > a,
+.site-header.everwell-navigation .desktop-nav > button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #18364f;
+  font-family: var(--body);
+  font-size: clamp(12px, 1.05vw, 15px);
+  font-weight: 400;
+  line-height: 1.25;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+}
+.site-header.everwell-navigation .desktop-nav > a:hover,
+.site-header.everwell-navigation .desktop-nav > button:hover { color: #0878ff; }
+.site-header.everwell-navigation .header-cta { display: inline-flex; min-height: 48px; margin-left: clamp(23px, 2.4vw, 38px); font-size: 12px; padding-inline: 22px; }
+.site-header.everwell-navigation .menu-toggle,
+.site-header.everwell-navigation .mobile-nav { display: none; }
+.nav-chevron { flex: 0 0 auto; width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 180ms ease; }
+.mega-trigger[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
+.site-header.everwell-navigation .desktop-nav > .mega-trigger::after { content: ""; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: #0878ff; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
+.site-header.everwell-navigation .desktop-nav > .mega-trigger[aria-current="page"]::after,
+.site-header.everwell-navigation .desktop-nav > .mega-trigger[data-current-section]::after { background: #b0c0cd; transform: scaleX(1); }
+.site-header.everwell-navigation .desktop-nav > .mega-trigger[aria-expanded="true"] { color: #086fea; }
+.site-header.everwell-navigation .desktop-nav > .mega-trigger[aria-expanded="true"]::after { background: #0878ff; transform: scaleX(1); }
+.mega-backdrop { position: fixed; z-index: 50; inset: 0; background: rgb(17 30 42 / 38%); animation: mega-reveal 220ms ease; }
+.mega-backdrop[hidden], .mega-panel[hidden] { display: none !important; }
+.everwell-navigation .mega-panel { position: absolute; inset: 100% 0 auto; max-height: calc(100dvh - var(--navigation-bottom, 114px)); overflow: auto; overscroll-behavior: contain; border-top: 1px solid #e4e8eb; background: white; color: #102f48; animation: mega-reveal 200ms ease; }
+.mega-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(310px, 31.5%); }
+.mega-main { min-width: 0; padding: 30px 38px 28px var(--nav-gutter); }
+.mega-eyebrow { margin: 0 0 8px; color: #0878ff; font: 500 12px/1.4 var(--body); letter-spacing: .07em; }
+.everwell-navigation h2.mega-title { margin: 0 0 22px; color: #102f48; font: 400 clamp(29px, 2.65vw, 40px)/1.12 var(--heading); letter-spacing: -.045em; }
+.mega-links { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 36px; }
+.mega-link { display: grid; grid-template-columns: 54px minmax(0, 1fr) 17px; align-items: center; gap: 16px; min-width: 0; min-height: 87px; color: #102f48; font-size: clamp(19px, 1.65vw, 25px); line-height: 1.15; letter-spacing: -.03em; text-decoration: none; }
+.mega-link-art { width: 54px; height: 54px; max-width: none; object-fit: contain; }
+.mega-link > .icon { width: 18px; height: 18px; stroke-width: 1.4; transition: transform 180ms ease; }
+.mega-link:hover, .mega-link:focus-visible { color: #0878ff; }
+.mega-link:hover > .icon { transform: translateX(4px); }
+.mega-footer { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 15px; padding-top: 22px; border-top: 1px solid #dce3e8; }
+.mega-footer > a { display: inline-flex; align-items: center; gap: 11px; color: #18364f; font-size: clamp(13px, 1.15vw, 17px); text-decoration: none; line-height: 1.4; white-space: nowrap; }
+.mega-footer > a + a { padding-left: 20px; border-left: 1px solid #adbecc; }
+.mega-footer > a.mega-overview { color: #0878ff; }
+.mega-footer > a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.mega-footer .icon { width: 15px; height: 15px; stroke-width: 1.5; }
+.mega-feature { min-width: 0; padding: 70px var(--nav-gutter) 32px 34px; background: #eaf5fd; }
+.mega-feature-photo { width: 100%; height: auto; aspect-ratio: 1.65; object-fit: cover; }
+.everwell-navigation .mega-feature h3 { margin: 23px 0 24px; color: #102f48; font: 400 clamp(28px, 2.5vw, 37px)/1.1 var(--heading); letter-spacing: -.045em; }
+.mega-feature-link { display: inline-flex; align-items: center; gap: 14px; color: #102f48; font-size: clamp(15px, 1.3vw, 19px); line-height: 1.4; text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 1px; }
+.mega-feature-link:hover { color: #0878ff; }
+.everwell-navigation .mega-close { position: absolute; z-index: 2; top: 16px; right: var(--nav-gutter); display: inline-flex; align-items: center; gap: 10px; min-height: 32px; border: 0; padding: 0; background: transparent; color: #102f48; font-size: 14px; cursor: pointer; }
+.mega-close .icon { width: 15px; height: 15px; stroke-width: 1.5; }
+.everwell-navigation .mega-close:hover { color: #0878ff; }
+.everwell-navigation :focus-visible { outline: 2px solid #0878ff; outline-offset: 5px; }
+.navigation-fallback { display: flex; flex-wrap: wrap; gap: 24px; padding: 16px var(--nav-gutter); }
+.navigation-fallback a { color: #102f48; font-size: 16px; }
+.department-item:target { scroll-margin-top: 35px; outline: 1px solid #9fc9ff; outline-offset: 7px; }
+.journal-story:target::after { opacity: 1; }
+.journal-story:target .story-details { opacity: 1; transform: none; }
+@keyframes mega-reveal { from { opacity: 0; } to { opacity: 1; } }
+@media (min-width: 1181px) and (max-width: 1160px) {
+  .site-header.everwell-navigation .header-cta { padding-inline: 16px; margin-left: 20px; font-size: 11px; }
+  .site-header.everwell-navigation .desktop-nav { gap: 16px; }
+  .site-header.everwell-navigation .brand span { font-size: 24px; }
+  .mega-main { padding-right: 27px; }
+  .mega-link { grid-template-columns: 45px minmax(0, 1fr) 16px; gap: 12px; font-size: 19px; }
+  .mega-link-art { width: 45px; height: 48px; }
+  .mega-links { gap: 4px 28px; }
+  .mega-layout { grid-template-columns: minmax(0, 1fr) 30%; }
+  .mega-feature { padding-left: 25px; padding-right: 35px; }
+}
+@media (max-width: 1180px) {
+  .site-header.everwell-navigation { --nav-gutter: max(18px, 5vw); }
+  .site-header.everwell-navigation .header-inner { height: 68px; }
+  .site-header.everwell-navigation .desktop-nav,
+  .site-header.everwell-navigation .header-cta { display: none; }
+  .site-header.everwell-navigation .menu-toggle { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; margin-left: auto; background: white; border: 1px solid #dce3e8; border-radius: 0; cursor: pointer; }
+  .site-header.everwell-navigation .menu-toggle .icon { width: 21px; height: 21px; }
+  .site-header.everwell-navigation .mobile-nav { position: absolute; top: 100%; left: 0; right: 0; max-height: calc(100dvh - var(--navigation-bottom, 98px)); overflow-y: auto; overscroll-behavior: contain; padding: 8px var(--nav-gutter) 24px; background: white; border-top: 1px solid #e4e8eb; box-shadow: none; }
+  .site-header.everwell-navigation .mobile-nav:not([hidden]) { display: block; }
+  .site-header.everwell-navigation .mobile-nav > a,
+  .site-header.everwell-navigation .mobile-nav > button { display: flex; align-items: center; justify-content: space-between; gap: 18px; width: 100%; min-height: 60px; border: 0; border-bottom: 1px solid #dce3e8; border-radius: 0; margin: 0; padding: 13px 0; background: transparent; color: #102f48; font-size: 20px; line-height: 1.25; text-align: left; text-decoration: none; cursor: pointer; }
+  .site-header.everwell-navigation .mobile-nav > button[aria-expanded="true"] { color: #0878ff; }
+  .site-header.everwell-navigation .mobile-nav > .mobile-appointment { min-height: 50px; justify-content: center; margin-top: 18px; padding: 14px 20px; color: white; background: #102f48; border: 1px solid #102f48; font-size: 16px; }
+  .mobile-nav .nav-chevron { width: 16px; height: 16px; }
+  .everwell-navigation .mobile-nav .mega-panel { position: static; max-height: none; overflow: visible; border: 0; background: white; animation: none; }
+  .mobile-nav .mega-layout { display: block; }
+  .mobile-nav .mega-main { padding: 25px 0 20px; }
+  .mobile-nav .mega-eyebrow { font-size: 10px; }
+  .everwell-navigation .mobile-nav h2.mega-title { margin-bottom: 16px; font-size: 26px; }
+  .mobile-nav .mega-links { gap: 6px 28px; }
+  .mobile-nav .mega-link { grid-template-columns: 40px minmax(0, 1fr) 15px; gap: 14px; min-height: 65px; padding: 8px 0; border: 0; color: #102f48; font-size: 18px; line-height: 1.3; }
+  .mobile-nav .mega-link-art { width: 40px; height: 43px; }
+  .mobile-nav .mega-link > .icon { width: 15px; height: 15px; }
+  .mobile-nav .mega-footer { gap: 13px 20px; padding-top: 20px; margin-top: 12px; }
+  .mobile-nav .mega-footer > a { min-height: 28px; border: 0; font-size: 14px; white-space: normal; }
+  .mobile-nav .mega-footer > a + a { padding-left: 0; border-left: 0; }
+  .mobile-nav .mega-feature, .everwell-navigation .mobile-nav .mega-close { display: none; }
+}
+@media (max-width: 600px) {
+  .site-header.everwell-navigation .header-inner { width: calc(100% - 36px); height: 64px; }
+  .mobile-nav .mega-links { grid-template-columns: 1fr; gap: 1px; }
+  .mobile-nav .mega-link { min-height: 60px; font-size: 18px; grid-template-columns: 39px minmax(0, 1fr) 15px; gap: 15px; }
+  .mobile-nav .mega-footer { column-gap: 23px; }
+  .mobile-nav .mega-footer > a.mega-overview { flex-basis: 100%; }
+  .everwell-navigation .mobile-nav h2.mega-title { font-size: 25px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mega-panel, .mega-backdrop { animation: none !important; }
+  .nav-chevron, .mega-trigger::after, .mega-link > .icon { transition: none !important; }
+}

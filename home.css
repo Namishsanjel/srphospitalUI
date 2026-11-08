@@ -1,0 +1,42 @@
+/* Content sets section height; one spacing scale connects the home page. */
+.home-page {
+  --home-section-space: clamp(56px, 6.25vw, 96px);
+}
+.home-page .hero,
+.home-page .services-section,
+.home-page .team-section,
+.home-page .journal-section {
+  display: block;
+  min-height: 0;
+}
+.home-page .services-section {
+  padding-block: var(--home-section-space);
+}
+.home-page .team-section {
+  padding-block: var(--home-section-space) calc(var(--home-section-space) / 2);
+}
+.home-page .journal-section {
+  padding-block: calc(var(--home-section-space) / 2) var(--home-section-space);
+}
+@media (min-width: 701px) {
+  .home-page .hero-intro { padding-block: clamp(32px, 3.5vw, 50px); }
+  .home-page .hero-photo {
+    height: clamp(320px, 35vw, 540px);
+    aspect-ratio: auto;
+  }
+  .home-page .patient-paths { min-height: clamp(60px, 5vw, 76px); }
+  .home-page .space-section { height: auto; }
+  .home-page .space-feature {
+    height: clamp(360px, 37vw, 560px);
+    aspect-ratio: auto;
+  }
+  .home-page .team-grid { align-items: start; }
+  .home-page .team-card img { height: clamp(230px, 24vw, 350px); }
+  .home-page .journal-mosaic {
+    grid-template-rows: clamp(220px, 18vw, 260px) clamp(220px, 20vw, 290px);
+  }
+  .home-page .journal-card-content { gap: 16px; }
+}
+@media (max-width: 700px) {
+  .home-page { --home-section-space: 48px; }
+}

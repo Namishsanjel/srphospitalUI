@@ -1,0 +1,64 @@
+/* Book an appointment page. Reuses tokens and patterns documented in DESIGN.md.
+   Hero reuses the About/contact text-led hero structure; the form reuses the
+   contact.html .contact-form classes and contact.css field styling; the
+   "other ways to book" rows reuse the .contact-links arrow-row style. */
+
+/* contact.css scopes these two variables to .contact-page; mirror the same
+   values here so the reused .contact-form-section / intro copy render. */
+.appointments-page { --contact-muted: #5d7281; --contact-surface: #f4f3ef; }
+
+/* Short text-led hero (About/contact hero structure, no image) */
+.appointments-hero { padding-block: clamp(56px, 6.5vw, 96px) clamp(28px, 3.2vw, 44px); }
+.appointments-hero-inner { max-width: 720px; }
+.appointments-hero h1 {
+  margin: 0;
+  color: var(--ink-deep);
+  font-family: var(--heading);
+  font-size: clamp(40px, 5.1vw, 72px);
+  font-weight: 400;
+  letter-spacing: -.055em;
+  line-height: 1;
+}
+.appointments-hero-summary {
+  max-width: 470px;
+  margin: clamp(12px, 1.4vw, 18px) 0 0;
+  color: #496176;
+  font-size: clamp(14px, 1.3vw, 18px);
+  line-height: 1.5;
+}
+
+/* Emergency notice: bordered row using existing tokens */
+.appointments-emergency {
+  margin: 0;
+  padding-block: clamp(14px, 1.6vw, 20px);
+  border-block: 1px solid var(--line);
+  color: var(--ink-deep);
+  font-size: clamp(13px, 1.2vw, 16px);
+  line-height: 1.5;
+}
+.appointments-emergency strong { font-weight: 600; }
+
+/* Reuse .contact-form-section / .contact-form-inner; keep the form full-width
+   (no aside content beyond the intro copy). */
+.appointments-page .contact-form-aside { display: block; }
+
+/* "Other ways to book" rows: reuse .contact-links base styling */
+.appointments-other { padding-block: clamp(28px, 3.6vw, 52px) clamp(32px, 4.1vw, 60px); }
+.appointments-other-title {
+  margin: 0 0 clamp(18px, 2vw, 30px);
+  color: var(--ink-deep);
+  font-family: var(--heading);
+  font-size: clamp(28px, 4.1vw, 59px);
+  font-weight: 400;
+  letter-spacing: -.052em;
+  line-height: 1.08;
+}
+.appointments-links { max-width: 720px; margin: 0; }
+
+@media (max-width: 700px) {
+  .appointments-hero { padding-block: 44px 26px; }
+  .appointments-hero h1 { font-size: clamp(38px, 9vw, 54px); }
+  .appointments-hero-summary { font-size: 14px; }
+  .appointments-other { padding-block: 31px 36px; }
+  .appointments-other-title { font-size: clamp(29px, 7vw, 40px); }
+}
