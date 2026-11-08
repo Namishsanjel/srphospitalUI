@@ -21,12 +21,12 @@
     departments: {
       eyebrow: 'OUR DEPARTMENTS', title: 'Find care that fits.',
       links: [
-        ["General Surgery", "surgery", "departments.html#general-surgery"],
-        ["Obstetrics and Gynaecology", "womens-health", "departments.html#obstetrics-gynaecology"],
-        ["Anesthesiology", "anesthesiology", "departments.html#anesthesiology"],
-        ["Orthopedics", "orthopedics", "departments.html#orthopedics"],
-        ["Paediatrics", "paediatrics", "departments.html#paediatrics"],
-        ["Urology", "urology", "departments.html#urology"],
+        ["General Surgery", "surgery", "general-surgery.html"],
+        ["Obstetrics and Gynaecology", "womens-health", "obstetrics-gynaecology.html"],
+        ["Anesthesiology", "anesthesiology", "anesthesiology.html"],
+        ["Orthopedics", "orthopedics", "orthopedics.html"],
+        ["Paediatrics", "paediatrics", "paediatrics.html"],
+        ["Urology", "urology", "urology.html"],
       ],
       footer: [['Visiting neurosurgery', 'departments.html#neurosurgery'], ['View all departments', 'departments.html']],
       image: 'assets/consultation-hero.jpg', imagePosition: 'center',

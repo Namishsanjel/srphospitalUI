@@ -19,6 +19,12 @@ A static marketing website for Sita Ram Prasad Memorial Trust Hospital. No frame
 | Home | `index.html` | `home-page` |
 | About | `about.html` | `about-page` |
 | Departments | `departments.html` | `departments-page` |
+| General Surgery | `general-surgery.html` | `department-page` |
+| Obstetrics and Gynaecology | `obstetrics-gynaecology.html` | `department-page` |
+| Anesthesiology | `anesthesiology.html` | `department-page` |
+| Orthopedics | `orthopedics.html` | `department-page` |
+| Paediatrics | `paediatrics.html` | `department-page` |
+| Urology | `urology.html` | `department-page` |
 | Services | `services.html` | `services-page` |
 | Contact | `contact.html` | `contact-page` |
 | Blog / Journal | `blog.html` | `blog-page` |
@@ -37,6 +43,7 @@ A static marketing website for Sita Ram Prasad Memorial Trust Hospital. No frame
 | Not found (404) | `404.html` | `not-found-page` |
 | Department template | `department-template.html` | `department-template-page` |
 | Article template | `article-template.html` | `blog-page article-template-page` |
+| Doctor template | `doctor-template.html` | `doctor-template-page` |
 
 New-page notes (all reuse existing classes; no page-specific CSS files were needed):
 - `our-people.html` — doctor grid; hero reuses the About hero pattern; cards reuse the Home journal-card overlay; the speciality filter reuses the Departments `.department-search` input styling (custom button + listbox). Loads `our-people.css` and `our-people.js`.
@@ -50,6 +57,7 @@ New-page notes (all reuse existing classes; no page-specific CSS files were need
 - `404.html` — short hero + `.contact-links` (Home, Departments). Loads `contact.css` + `appointments.css`.
 - `department-template.html` — featured department block (`.featured-*`) + Home team-card grid. Loads `contact.css` + `appointments.css` + `departments.css`.
 - `article-template.html` — Journal title/meta + `.featured-image` hero + `.featured-copy` body. Loads `blog.css` + `appointments.css`.
+- `doctor-template.html` — **Template to duplicate per doctor.** Individual doctor profile: `.featured-department`/`.featured-overview` block (photo left via non-reverse grid, name/speciality/bio/button in `.featured-copy`), "All doctors" `.text-link`, and a FAQ accordion of detail sections. Loads `contact.css` + `appointments.css` + `departments.css`. Not linked from anywhere; `our-people.html` cards stay `#` until real doctor pages exist.
 
 ### What each file does (from `README.md`)
 - `styles.css` — shared layout, type, colors, common components.
