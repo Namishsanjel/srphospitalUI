@@ -57,3 +57,10 @@
 @media (max-width: 700px) {
   .home-page { --home-section-space: 48px; }
 }
+
+/* Group D: align "Start with what you need" list top with the photo (top-aligned). */
+.home-page .services-content { align-items: start; }
+/* Group D: slightly stronger top gradient where the underlined journal tags sit on pale photo areas. */
+.home-page .journal-card::after {
+  background: linear-gradient(180deg, rgb(12 29 43 / 42%) 0%, rgb(12 29 43 / 16%) 24%, transparent 40%, rgb(11 27 40 / 88%) 100%);
+}

@@ -859,3 +859,41 @@ button { color: inherit; }
 .breadcrumb a:hover { color: var(--blue); }
 .breadcrumb a:focus-visible { outline: 2px solid #5f87a8; outline-offset: 3px; border-radius: 2px; }
 .breadcrumb [aria-current="page"] { color: var(--muted); overflow-wrap: anywhere; }
+
+/* Service-page hero icon (append-only; scoped to .service-page so other pages are unaffected). */
+.service-page .appointments-hero-inner:has(> img) {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto;
+  grid-auto-rows: min-content;
+  align-content: center;
+  align-items: center;
+  row-gap: 0;
+  column-gap: clamp(16px, 2vw, 28px);
+}
+.service-page .appointments-hero-inner:has(> img) > :not(img) { grid-column: 2; min-width: 0; }
+.service-page .appointments-hero-inner > img {
+  display: block;
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  align-self: center;
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+  margin: 0;
+}
+@media (max-width: 700px) {
+  .service-page .appointments-hero-inner > img { width: 56px; height: 56px; }
+}
+
+/* Service-page layout alignment (append-only; scoped to .service-page). */
+.service-page .appointments-hero-inner { max-width: none; }
+.service-page .appointments-hero {
+  padding-top: clamp(20px, 2.4vw, 32px);
+  padding-bottom: clamp(40px, 4vw, 56px);
+}
+.service-page .appointments-links { max-width: none; }
+.service-page .appointments-other { padding-block: clamp(48px, 5.6vw, 80px); }
+@media (max-width: 700px) {
+  .service-page .appointments-other { padding-block: 48px; }
+}

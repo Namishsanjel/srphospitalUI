@@ -162,3 +162,17 @@
   .patient-support-heading > p:last-child { font-size: 13px; }
   .patient-support-links a { min-height: 61px; }
 }
+
+/* Service-directory plain rows: show an icon in place of the row counter,
+   matching the Care & specialties icon rows (append-only, scoped to .service-plain-list). */
+.service-plain-list a {
+  grid-template-columns: 46px minmax(0, 1fr) 18px;
+  gap: 12px;
+  min-height: 65px;
+}
+.service-plain-list a::before { content: none; }
+.service-plain-list img { width: 42px; height: 42px; object-fit: contain; }
+@media (max-width: 700px) {
+  .service-plain-list a { grid-template-columns: 43px minmax(0, 1fr) 18px; gap: 10px; min-height: 59px; }
+  .service-plain-list img { width: 39px; height: 39px; }
+}
