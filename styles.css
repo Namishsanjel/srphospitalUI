@@ -816,3 +816,46 @@ button { color: inherit; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Breadcrumb trail for sub-pages (appended; does not alter existing rules). */
+.breadcrumb {
+  width: var(--container);
+  margin-inline: auto;
+  margin-block: clamp(18px, 2.2vw, 30px) 0;
+}
+.breadcrumb > ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: clamp(11px, 1.05vw, 14px);
+  line-height: 1.4;
+}
+.breadcrumb > ol > li {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
+}
+.breadcrumb > ol > li + li::before {
+  content: "/";
+  content: "/" / "";
+  margin-inline: clamp(6px, .8vw, 10px);
+  color: var(--muted);
+}
+.breadcrumb a {
+  color: var(--ink-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+  transition: color .18s ease;
+}
+.breadcrumb a:hover { color: var(--blue); }
+.breadcrumb a:focus-visible { outline: 2px solid #5f87a8; outline-offset: 3px; border-radius: 2px; }
+.breadcrumb [aria-current="page"] { color: var(--muted); overflow-wrap: anywhere; }

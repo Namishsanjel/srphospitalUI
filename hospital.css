@@ -67,9 +67,10 @@
   .visiting-service .text-link { grid-column: 2; justify-self: start; }
 }
 @media (max-width: 700px) {
-  .utility-inner .utility-home { max-width: 38%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 10px; display: block; }
+  .utility-bar { height: auto; }
+  .utility-inner .utility-home { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 10px; display: block; }
   .utility-home .utility-pin { display: none; }
-  .utility-inner { min-height: 32px; }
+  .utility-inner { flex-wrap: wrap; min-height: 0; padding-block: 3px; row-gap: 2px; justify-content: flex-start; }
   .site-header.everwell-navigation .header-inner { height: 78px; }
   .site-header.everwell-navigation .brand { gap: 8px; margin-right: 8px; }
   .site-header.everwell-navigation .brand img { width: 48px; height: 48px; }

@@ -85,6 +85,15 @@ New-page notes (all reuse existing classes; no page-specific CSS files were need
 - `department-template.html` — featured department block (`.featured-*`) + Home team-card grid. Loads `contact.css` + `appointments.css` + `departments.css`.
 - `article-template.html` — Single Journal article template, filled in from the backend later (see `<!-- BACKEND -->` markers). Back link to `blog.html`, Journal story image hero (`.journal-story` + `.story-photo`, `--story-ratio`), title + category/read-time meta, and body in a readable column (`.appointments-hero-inner` max-width). Loads `blog.css` + `appointments.css`.
 - `doctor-template.html` — **Template to duplicate per doctor.** Individual doctor profile: `.featured-department`/`.featured-overview` block (photo left via non-reverse grid, name/speciality/bio/button in `.featured-copy`), "All doctors" `.text-link`, and a FAQ accordion of detail sections. Loads `contact.css` + `appointments.css` + `departments.css`. Not linked from anywhere; `our-people.html` cards stay `#` until real doctor pages exist.
+- **Breadcrumbs (sub-pages):** department pages, service pages, `article-template.html` and `doctor-template.html` carry a breadcrumb as the first child of `<main>` (replacing the old back link). Markup:
+  ```html
+  <nav class="breadcrumb" aria-label="Breadcrumb"><ol>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="[parent].html">[Parent]</a></li>
+    <li><span aria-current="page">[Current page name]</span></li>
+  </ol></nav>
+  ```
+  Parents: departments → `departments.html`, services → `services.html`, article → `blog.html` ("Health &amp; wellness"), doctor → `our-people.html` ("Our people"). Styled by an append-only `.breadcrumb` block in `styles.css` (separators drawn in CSS; wraps on mobile).
 
 ### What each file does (from `README.md`)
 - `styles.css` — shared layout, type, colors, common components.

@@ -20,9 +20,3 @@ searchForm?.addEventListener('submit', event => {
   filterSpecialties();
 });
 searchInput?.addEventListener('input', filterSpecialties);
-(searchInput ? document.querySelector('.all-specialties') : null)?.addEventListener('click', event => {
-  event.preventDefault();
-  searchInput.value = '';
-  filterSpecialties();
-  searchInput.focus();
-});

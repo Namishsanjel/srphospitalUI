@@ -52,7 +52,7 @@
   const panelContainer = header.querySelector('.navigation-menus');
   panelContainer.innerHTML = Object.entries(menus).map(([key, menu]) => `
     <section class="mega-panel" id="mega-${key}" aria-labelledby="nav-${key}-trigger" hidden>
-      <button class="mega-close" type="button" aria-label="Close ${escapeHtml(key === 'wellness' ? 'health and wellness' : key)} menu">Close <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      <button class="mega-close" type="button" aria-label="Close ${escapeHtml(key)} menu">Close <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
       <div class="mega-layout">
         <div class="mega-main">
           <p class="mega-eyebrow">${escapeHtml(menu.eyebrow)}</p>
