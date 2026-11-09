@@ -25,6 +25,33 @@ A static marketing website for Sita Ram Prasad Memorial Trust Hospital. No frame
 | Orthopedics | `orthopedics.html` | `department-page` |
 | Paediatrics | `paediatrics.html` | `department-page` |
 | Urology | `urology.html` | `department-page` |
+| Service: Pregnancy & high-risk pregnancy | `pregnancy-high-risk-pregnancy.html` | `service-page` |
+| Service: Gynaecology consultations | `gynaecology-consultations.html` | `service-page` |
+| Service: Fertility care: IVF / ICSI / IUI | `fertility-care-ivf-icsi-iui.html` | `service-page` |
+| Service: CT-Scan | `ct-scan.html` | `service-page` |
+| Service: IVF (In-vitro Fertilization) | `ivf.html` | `service-page` |
+| Service: Neurosurgery | `neurosurgery.html` | `service-page` |
+| Service: 2D Echo | `2d-echo.html` | `service-page` |
+| Service: ECG | `ecg.html` | `service-page` |
+| Service: Tread Mill Test | `tread-mill-test.html` | `service-page` |
+| Service: USG (Trans abdominal and Trans-Vaginal with 3D/4D) | `usg.html` | `service-page` |
+| Service: X-Ray | `x-ray.html` | `service-page` |
+| Service: 24 hours Emergency, ICU, OT, Ward services | `24-hour-emergency-icu-ot-ward.html` | `service-page` |
+| Service: Ambulance services | `ambulance-services.html` | `service-page` |
+| Service: Dialysis | `dialysis.html` | `service-page` |
+| Service: Blood bank service | `blood-bank-service.html` | `service-page` |
+| Service: Pharmacy | `pharmacy.html` | `service-page` |
+| Service: Physiotherapy | `physiotherapy.html` | `service-page` |
+| Service: Clinical Bio-Chemistry | `clinical-bio-chemistry.html` | `service-page` |
+| Service: Clinical Microbiology and Serology | `clinical-microbiology-serology.html` | `service-page` |
+| Service: Clinical Pathology | `clinical-pathology.html` | `service-page` |
+| Service: Haematology | `haematology.html` | `service-page` |
+| Service: IUI (Intra-uterine insemination) | `iui.html` | `service-page` |
+| Service: ICSI (Intra-Cytoplasmic Sperm Injection) | `icsi.html` | `service-page` |
+| Service: Ovum freezing | `ovum-freezing.html` | `service-page` |
+| Service: Semen Analysis | `semen-analysis.html` | `service-page` |
+| Service: TESE/TESA | `tese-tesa.html` | `service-page` |
+| Service: Sperm Freezing | `sperm-freezing.html` | `service-page` |
 | Services | `services.html` | `services-page` |
 | Contact | `contact.html` | `contact-page` |
 | Blog / Journal | `blog.html` | `blog-page` |
@@ -56,7 +83,7 @@ New-page notes (all reuse existing classes; no page-specific CSS files were need
 - `privacy.html`, `terms.html`, `accessibility.html` — short hero + FAQ accordion containing heading/paragraph placeholders only (no legal text). Load `contact.css` + `appointments.css`.
 - `404.html` — short hero + `.contact-links` (Home, Departments). Loads `contact.css` + `appointments.css`.
 - `department-template.html` — featured department block (`.featured-*`) + Home team-card grid. Loads `contact.css` + `appointments.css` + `departments.css`.
-- `article-template.html` — Journal title/meta + `.featured-image` hero + `.featured-copy` body. Loads `blog.css` + `appointments.css`.
+- `article-template.html` — Single Journal article template, filled in from the backend later (see `<!-- BACKEND -->` markers). Back link to `blog.html`, Journal story image hero (`.journal-story` + `.story-photo`, `--story-ratio`), title + category/read-time meta, and body in a readable column (`.appointments-hero-inner` max-width). Loads `blog.css` + `appointments.css`.
 - `doctor-template.html` — **Template to duplicate per doctor.** Individual doctor profile: `.featured-department`/`.featured-overview` block (photo left via non-reverse grid, name/speciality/bio/button in `.featured-copy`), "All doctors" `.text-link`, and a FAQ accordion of detail sections. Loads `contact.css` + `appointments.css` + `departments.css`. Not linked from anywhere; `our-people.html` cards stay `#` until real doctor pages exist.
 
 ### What each file does (from `README.md`)

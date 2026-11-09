@@ -43,6 +43,14 @@
 .journal-story:hover .story-photo,
 .journal-story:focus-visible .story-photo { transform: scale(1.035); }
 .journal-story:focus-visible { outline: 2px solid #326fb3; outline-offset: 4px; }
+/* Card link wrapper: keep the Journal card visually identical and keyboard-focusable. */
+.journal-masonry > a { display: block; color: inherit; text-decoration: none; break-inside: avoid; margin: 0 0 28px; }
+.journal-masonry > a > .journal-story { margin-bottom: 0; }
+.journal-masonry > a:focus-visible { outline: 0; }
+.journal-masonry > a:focus-visible .journal-story { outline: 2px solid #326fb3; outline-offset: 4px; }
+.journal-masonry > a:focus-visible .journal-story::after { opacity: 1; }
+.journal-masonry > a:focus-visible .story-details { opacity: 1; transform: translateY(0); }
+.journal-masonry > a:focus-visible .story-photo { transform: scale(1.035); }
 .journal-empty { margin: 30px 0; color: #617589; font-size: 18px; }
 .journal-empty[hidden] { display: none; }
 
@@ -51,6 +59,7 @@
   .journal-page-heading h1 { font-size: clamp(40px, 5.7vw, 57px); }
   .journal-masonry { column-count: 2; column-gap: 24px; }
   .journal-story { margin-bottom: 24px; }
+  .journal-masonry > a { margin-bottom: 24px; }
   .story-details { padding: 24px; }
   .story-details h2 { font-size: 27px; }
 }
@@ -66,6 +75,7 @@
   .journal-search-toggle .icon { width: 25px; height: 25px; }
   .journal-masonry { column-count: 1; }
   .journal-story { margin-bottom: 20px; }
+  .journal-masonry > a { margin-bottom: 20px; }
   .journal-story::after { opacity: 1; }
   .journal-story .story-details { opacity: 1; transform: none; }
   .story-details { padding: 24px; }

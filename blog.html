@@ -30,11 +30,8 @@
   <div class="utility-bar">
     <div class="utility-inner container">
       <a class="utility-home" href="index.html#home"><svg class="utility-pin" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14s5-4.2 5-8a5 5 0 1 0-10 0c0 3.8 5 8 5 8Z"/><circle cx="8" cy="6" r="1.7"/></svg> Sita Ram Prasad Memorial Trust Hospital</a>
-      <a href="patient-support.html">Patient support</a>
-      <i aria-hidden="true"></i>
-      <a href="billing.html">Pay a bill</a>
-      <i aria-hidden="true"></i>
-      <a href="contact.html">Contact us</a>
+      <!-- Placeholder: add the hospital's confirmed emergency number. -->
+      <span>Emergency contact: [EMERGENCY NUMBER]</span>
     </div>
   </div>
 
@@ -45,7 +42,7 @@
         <a href="index.html#team">Find care</a>
         <button class="mega-trigger" id="nav-services-trigger" type="button" data-menu="services" aria-expanded="false" aria-controls="mega-services">Services<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
         <button class="mega-trigger" id="nav-departments-trigger" type="button" data-menu="departments" aria-expanded="false" aria-controls="mega-departments">Departments<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
-        <button class="mega-trigger" id="nav-wellness-trigger" type="button" data-menu="wellness" aria-expanded="false" aria-controls="mega-wellness" aria-current="page">Health &amp; wellness<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+        <a href="blog.html" aria-current="page">Health &amp; wellness</a>
         <button class="mega-trigger" id="nav-about-trigger" type="button" data-menu="about" aria-expanded="false" aria-controls="mega-about">About<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
       </nav>
       <a class="button header-cta" href="appointments.html">Book an appointment <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
@@ -57,8 +54,6 @@
       <div class="mobile-mega-slot" data-mobile-slot="services"></div>
       <button class="mega-trigger" id="mobile-departments-trigger" type="button" data-menu="departments" aria-expanded="false" aria-controls="mega-departments">Departments<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
       <div class="mobile-mega-slot" data-mobile-slot="departments"></div>
-      <button class="mega-trigger" id="mobile-wellness-trigger" type="button" data-menu="wellness" aria-expanded="false" aria-controls="mega-wellness" aria-current="page">Health &amp; wellness<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
-      <div class="mobile-mega-slot" data-mobile-slot="wellness"></div>
       <button class="mega-trigger" id="mobile-about-trigger" type="button" data-menu="about" aria-expanded="false" aria-controls="mega-about">About<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
       <div class="mobile-mega-slot" data-mobile-slot="about"></div>
       <a class="mobile-appointment" href="appointments.html">Book an appointment <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
@@ -84,69 +79,87 @@
       </div>
       <p class="visually-hidden" id="journal-search-status" role="status" aria-live="polite"></p>
       <div class="journal-masonry" id="journal-masonry">
-          <article class="journal-story" id="small-steps" tabindex="0" aria-labelledby="small-steps-title small-steps-date" style="--story-ratio:3 / 4;--story-position:center 60%">
+          <a href="article-template.html?post=small-steps">
+          <article class="journal-story" id="small-steps" aria-labelledby="small-steps-title small-steps-date" style="--story-ratio:3 / 4;--story-position:center 60%">
             <img class="story-photo" src="assets/journal/walking.png" alt="An older couple walking together along a leafy garden path" width="1086" height="1448" loading="eager" decoding="async">
             <div class="story-details">
               <h2 id="small-steps-title">Small steps. Better days.</h2>
               <time id="small-steps-date" datetime="2026-10-24">24 October 2026</time>
             </div>
           </article>
-          <article class="journal-story" id="more-colour" tabindex="0" aria-labelledby="more-colour-title more-colour-date" style="--story-ratio:3 / 2;--story-position:center">
+          </a>
+          <a href="article-template.html?post=more-colour">
+          <article class="journal-story" id="more-colour" aria-labelledby="more-colour-title more-colour-date" style="--story-ratio:3 / 2;--story-position:center">
             <img class="story-photo" src="assets/journal/nutrition.png" alt="Fresh vegetables and fruit in ceramic bowls on a kitchen table" width="1536" height="1024" loading="lazy" decoding="async">
             <div class="story-details">
               <h2 id="more-colour-title">A little more colour on your plate.</h2>
               <time id="more-colour-date" datetime="2026-10-15">15 October 2026</time>
             </div>
           </article>
-          <article class="journal-story" id="space-at-ease" tabindex="0" aria-labelledby="space-at-ease-title space-at-ease-date" style="--story-ratio:1 / 1;--story-position:28% center">
+          </a>
+          <a href="article-template.html?post=space-at-ease">
+          <article class="journal-story" id="space-at-ease" aria-labelledby="space-at-ease-title space-at-ease-date" style="--story-ratio:1 / 1;--story-position:28% center">
             <img class="story-photo" src="assets/space-atrium-clean.webp" alt="A bright hospital atrium with plants and warm natural materials" width="2158" height="729" loading="lazy" decoding="async">
             <div class="story-details">
               <h2 id="space-at-ease-title">Space to feel at ease.</h2>
               <time id="space-at-ease-date" datetime="2026-10-06">06 October 2026</time>
             </div>
           </article>
-          <article class="journal-story" id="room-for-rest" tabindex="0" aria-labelledby="room-for-rest-title room-for-rest-date" style="--story-ratio:3 / 2;--story-position:center">
+          </a>
+          <a href="article-template.html?post=room-for-rest">
+          <article class="journal-story" id="room-for-rest" aria-labelledby="room-for-rest-title room-for-rest-date" style="--story-ratio:3 / 2;--story-position:center">
             <img class="story-photo" src="assets/journal/rest.png" alt="Soft morning sunlight across linen and a bedside table" width="1536" height="1024" loading="eager" decoding="async">
             <div class="story-details">
               <h2 id="room-for-rest-title">Making room for rest.</h2>
               <time id="room-for-rest-date" datetime="2026-10-21">21 October 2026</time>
             </div>
           </article>
-          <article class="journal-story" id="people-behind-care" tabindex="0" aria-labelledby="people-behind-care-title people-behind-care-date" style="--story-ratio:3 / 2;--story-position:center">
+          </a>
+          <a href="article-template.html?post=people-behind-care">
+          <article class="journal-story" id="people-behind-care" aria-labelledby="people-behind-care-title people-behind-care-date" style="--story-ratio:3 / 2;--story-position:center">
             <img class="story-photo" src="assets/approved-team-general.png" alt="Two clinicians sharing a conversation at a desk" width="361" height="202" loading="lazy" decoding="async">
             <div class="story-details">
               <h2 id="people-behind-care-title">The people behind your care.</h2>
               <time id="people-behind-care-date" datetime="2026-10-12">12 October 2026</time>
             </div>
           </article>
-          <article class="journal-story" id="connected-care" tabindex="0" aria-labelledby="connected-care-title connected-care-date" style="--story-ratio:3 / 4;--story-position:center">
+          </a>
+          <a href="article-template.html?post=connected-care">
+          <article class="journal-story" id="connected-care" aria-labelledby="connected-care-title connected-care-date" style="--story-ratio:3 / 4;--story-position:center">
             <img class="story-photo" src="assets/patient-consultation.jpg" alt="A doctor explaining a scan during a consultation" width="1600" height="2400" loading="lazy" decoding="async">
             <div class="story-details">
               <h2 id="connected-care-title">Care that stays connected.</h2>
               <time id="connected-care-date" datetime="2026-10-03">03 October 2026</time>
             </div>
           </article>
-          <article class="journal-story" id="your-next-appointment" tabindex="0" aria-labelledby="your-next-appointment-title your-next-appointment-date" style="--story-ratio:1 / 1;--story-position:center">
+          </a>
+          <a href="article-template.html?post=your-next-appointment">
+          <article class="journal-story" id="your-next-appointment" aria-labelledby="your-next-appointment-title your-next-appointment-date" style="--story-ratio:1 / 1;--story-position:center">
             <img class="story-photo" src="assets/consultation-hero.jpg" alt="A doctor listening to a patient in a bright consultation room" width="1600" height="1067" loading="eager" decoding="async">
             <div class="story-details">
               <h2 id="your-next-appointment-title">What to ask at your next appointment.</h2>
               <time id="your-next-appointment-date" datetime="2026-10-18">18 October 2026</time>
             </div>
           </article>
-          <article class="journal-story" id="finding-calm" tabindex="0" aria-labelledby="finding-calm-title finding-calm-date" style="--story-ratio:1 / 1;--story-position:center">
+          </a>
+          <a href="article-template.html?post=finding-calm">
+          <article class="journal-story" id="finding-calm" aria-labelledby="finding-calm-title finding-calm-date" style="--story-ratio:1 / 1;--story-position:center">
             <img class="story-photo" src="assets/journal/calm.png" alt="A woman quietly tending herbs beside a garden window" width="1254" height="1254" loading="lazy" decoding="async">
             <div class="story-details">
               <h2 id="finding-calm-title">Finding calm in the everyday.</h2>
               <time id="finding-calm-date" datetime="2026-10-09">09 October 2026</time>
             </div>
           </article>
-          <article class="journal-story" id="more-time" tabindex="0" aria-labelledby="more-time-title more-time-date" style="--story-ratio:1 / 1;--story-position:center">
+          </a>
+          <a href="article-template.html?post=more-time">
+          <article class="journal-story" id="more-time" aria-labelledby="more-time-title more-time-date" style="--story-ratio:1 / 1;--story-position:center">
             <img class="story-photo" src="assets/journal/reading.png" alt="An older man reading a book in a comfortable chair by a window" width="1254" height="1254" loading="lazy" decoding="async">
             <div class="story-details">
               <h2 id="more-time-title">More time for the things you love.</h2>
               <time id="more-time-date" datetime="2026-09-30">30 September 2026</time>
             </div>
           </article>
+          </a>
       </div>
       <p class="journal-empty" id="journal-empty" hidden>No stories match that name. Try another search.</p>
     </section>

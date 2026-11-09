@@ -99,6 +99,7 @@ button { color: inherit; }
   font-size: clamp(8px, .82vw, 11px);
   line-height: 1;
 }
+.utility-inner > span { color: #596b7a; font-size: clamp(8px, .82vw, 11px); line-height: 1; }
 .utility-inner .utility-home { margin-right: auto; display: inline-flex; align-items: center; gap: 6px; color: #213f5c; }
 .utility-home .utility-pin { width: 12px; height: 12px; fill: currentColor; stroke: white; stroke-width: 1.5; }
 .utility-inner > i { width: 1px; height: 12px; background: #61798d; opacity: .8; }

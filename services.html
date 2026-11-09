@@ -32,11 +32,8 @@
   <div class="utility-bar">
     <div class="utility-inner container">
       <a class="utility-home" href="index.html"><svg class="utility-pin" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 14s5-4.2 5-8a5 5 0 1 0-10 0c0 3.8 5 8 5 8Z"/><circle cx="8" cy="6" r="1.7"/></svg> Sita Ram Prasad Memorial Trust Hospital</a>
-      <a href="patient-support.html">Patient support</a>
-      <i aria-hidden="true"></i>
-      <a href="billing.html">Pay a bill</a>
-      <i aria-hidden="true"></i>
-      <a href="contact.html">Contact us</a>
+      <!-- Placeholder: add the hospital's confirmed emergency number. -->
+      <span>Emergency contact: [EMERGENCY NUMBER]</span>
     </div>
   </div>
 
@@ -47,7 +44,7 @@
         <a href="index.html#team">Find care</a>
         <button class="mega-trigger" id="nav-services-trigger" type="button" data-menu="services" aria-expanded="false" aria-controls="mega-services" aria-current="page">Services<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
         <button class="mega-trigger" id="nav-departments-trigger" type="button" data-menu="departments" aria-expanded="false" aria-controls="mega-departments">Departments<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
-        <button class="mega-trigger" id="nav-wellness-trigger" type="button" data-menu="wellness" aria-expanded="false" aria-controls="mega-wellness">Health &amp; wellness<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+        <a href="blog.html">Health &amp; wellness</a>
         <button class="mega-trigger" id="nav-about-trigger" type="button" data-menu="about" aria-expanded="false" aria-controls="mega-about">About<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
       </nav>
       <a class="button header-cta" href="appointments.html">Book an appointment <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
@@ -59,8 +56,6 @@
       <div class="mobile-mega-slot" data-mobile-slot="services"></div>
       <button class="mega-trigger" id="mobile-departments-trigger" type="button" data-menu="departments" aria-expanded="false" aria-controls="mega-departments">Departments<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
       <div class="mobile-mega-slot" data-mobile-slot="departments"></div>
-      <button class="mega-trigger" id="mobile-wellness-trigger" type="button" data-menu="wellness" aria-expanded="false" aria-controls="mega-wellness">Health &amp; wellness<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
-      <div class="mobile-mega-slot" data-mobile-slot="wellness"></div>
       <button class="mega-trigger" id="mobile-about-trigger" type="button" data-menu="about" aria-expanded="false" aria-controls="mega-about">About<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
       <div class="mobile-mega-slot" data-mobile-slot="about"></div>
       <a class="mobile-appointment" href="appointments.html">Book an appointment <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
@@ -138,12 +133,77 @@
             </div>
           </div>
           <ul class="service-plain-list">
-            <li data-service="2d echo 2d-echo diagnostic testing"><a href="#2d-echo"><span>2D Echo</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
-            <li data-service="ct-scan ct-scan diagnostic testing"><a href="#ct-scan"><span>CT-Scan</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
-            <li data-service="ecg ecg diagnostic testing"><a href="#ecg"><span>ECG</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
-            <li data-service="tread mill test treadmill-test diagnostic testing"><a href="#treadmill-test"><span>Tread Mill Test</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
-            <li data-service="usg usg diagnostic testing"><a href="#usg"><span>USG · 3D/4D ultrasound</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
-            <li data-service="x-ray x-ray diagnostic testing"><a href="#x-ray"><span>X-Ray</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="2d echo 2d-echo diagnostic testing"><a href="2d-echo.html"><span>2D Echo</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="ct-scan ct-scan diagnostic testing"><a href="ct-scan.html"><span>CT-Scan</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="ecg ecg diagnostic testing"><a href="ecg.html"><span>ECG</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="tread mill test treadmill-test diagnostic testing"><a href="tread-mill-test.html"><span>Tread Mill Test</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="usg usg diagnostic testing"><a href="usg.html"><span>USG · 3D/4D ultrasound</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="x-ray x-ray diagnostic testing"><a href="x-ray.html"><span>X-Ray</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+          </ul>
+        </section>
+
+        <section class="service-group" id="hospital-services-group" data-service-group aria-labelledby="hospital-services-group-title">
+          <div class="service-group-heading">
+            <span class="service-group-number" aria-hidden="true">03</span>
+            <div>
+              <h3 id="hospital-services-group-title">Hospital services</h3>
+              <p>[PARAGRAPH TEXT]</p>
+            </div>
+          </div>
+          <ul class="service-plain-list">
+            <li data-service="24 hours emergency icu ot ward services"><a href="24-hour-emergency-icu-ot-ward.html"><span>24 hours Emergency, ICU, OT, Ward services</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="ambulance services"><a href="ambulance-services.html"><span>Ambulance services</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="dialysis"><a href="dialysis.html"><span>Dialysis</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="blood bank service"><a href="blood-bank-service.html"><span>Blood bank service</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="pharmacy"><a href="pharmacy.html"><span>Pharmacy</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="physiotherapy"><a href="physiotherapy.html"><span>Physiotherapy</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+          </ul>
+        </section>
+
+        <section class="service-group" id="laboratory-services" data-service-group aria-labelledby="laboratory-services-title">
+          <div class="service-group-heading">
+            <span class="service-group-number" aria-hidden="true">04</span>
+            <div>
+              <h3 id="laboratory-services-title">Laboratory services</h3>
+              <p>[PARAGRAPH TEXT]</p>
+            </div>
+          </div>
+          <ul class="service-plain-list">
+            <li data-service="clinical bio chemistry"><a href="clinical-bio-chemistry.html"><span>Clinical Bio-Chemistry</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="clinical microbiology and serology"><a href="clinical-microbiology-serology.html"><span>Clinical Microbiology and Serology</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="clinical pathology"><a href="clinical-pathology.html"><span>Clinical Pathology</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="haematology"><a href="haematology.html"><span>Haematology</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+          </ul>
+        </section>
+
+        <section class="service-group" id="infertility-services" data-service-group aria-labelledby="infertility-services-title">
+          <div class="service-group-heading">
+            <span class="service-group-number" aria-hidden="true">05</span>
+            <div>
+              <h3 id="infertility-services-title">Infertility services</h3>
+              <p>[PARAGRAPH TEXT]</p>
+            </div>
+          </div>
+          <ul class="service-plain-list">
+            <li data-service="iui intra uterine insemination"><a href="iui.html"><span>IUI (Intra-uterine insemination)</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="icsi intra cytoplasmic sperm injection"><a href="icsi.html"><span>ICSI (Intra-Cytoplasmic Sperm Injection)</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="ivf in vitro fertilization"><a href="ivf.html"><span>IVF (In-vitro Fertilization)</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="ovum freezing"><a href="ovum-freezing.html"><span>Ovum freezing</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+          </ul>
+        </section>
+
+        <section class="service-group" id="andrology-services" data-service-group aria-labelledby="andrology-services-title">
+          <div class="service-group-heading">
+            <span class="service-group-number" aria-hidden="true">06</span>
+            <div>
+              <h3 id="andrology-services-title">Andrology services</h3>
+              <p>[PARAGRAPH TEXT]</p>
+            </div>
+          </div>
+          <ul class="service-plain-list">
+            <li data-service="semen analysis"><a href="semen-analysis.html"><span>Semen Analysis</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="tese tesa"><a href="tese-tesa.html"><span>TESE/TESA</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
+            <li data-service="sperm freezing"><a href="sperm-freezing.html"><span>Sperm Freezing</span><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a></li>
           </ul>
         </section>
       </div>

@@ -35,9 +35,9 @@ html.navigation-open { overflow: hidden; }
 .site-header.everwell-navigation .mobile-nav { display: none; }
 .nav-chevron { flex: 0 0 auto; width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 180ms ease; }
 .mega-trigger[aria-expanded="true"] .nav-chevron { transform: rotate(180deg); }
-.site-header.everwell-navigation .desktop-nav > .mega-trigger::after { content: ""; position: absolute; bottom: -4px; left: 0; right: 0; height: 2px; background: #0878ff; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
+.site-header.everwell-navigation .desktop-nav > .mega-trigger::after { content: ""; position: absolute; bottom: -10px; left: 0; right: 20px; height: 2px; background: #0878ff; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
 .site-header.everwell-navigation .desktop-nav > .mega-trigger[aria-current="page"]::after,
-.site-header.everwell-navigation .desktop-nav > .mega-trigger[data-current-section]::after { background: #b0c0cd; transform: scaleX(1); }
+.site-header.everwell-navigation .desktop-nav > .mega-trigger[data-current-section]::after { background: #0878ff; transform: scaleX(1); }
 .site-header.everwell-navigation .desktop-nav > .mega-trigger[aria-expanded="true"] { color: #086fea; }
 .site-header.everwell-navigation .desktop-nav > .mega-trigger[aria-expanded="true"]::after { background: #0878ff; transform: scaleX(1); }
 .mega-backdrop { position: fixed; z-index: 50; inset: 0; background: rgb(17 30 42 / 38%); animation: mega-reveal 220ms ease; }
