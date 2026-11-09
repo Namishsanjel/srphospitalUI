@@ -64,3 +64,19 @@
 .home-page .journal-card::after {
   background: linear-gradient(180deg, rgb(12 29 43 / 42%) 0%, rgb(12 29 43 / 16%) 24%, transparent 40%, rgb(11 27 40 / 88%) 100%);
 }
+
+/* Journal card links (index only): fill the grid slot, exact look, visible focus. */
+.home-page .journal-mosaic > a {
+  display: block;
+  min-width: 0;
+  min-height: 0;
+  color: inherit;
+  text-decoration: none;
+}
+.home-page .journal-mosaic > a > .journal-card { height: 100%; }
+.home-page .journal-mosaic > a:first-child { grid-row: 1 / span 2; }
+.home-page .journal-mosaic > a:focus-visible { outline: 0; }
+.home-page .journal-mosaic > a:focus-visible .journal-card { outline: 2px solid #326fb3; outline-offset: -2px; }
+@media (max-width: 700px) {
+  .home-page .journal-mosaic > a:first-child { grid-row: auto; }
+}

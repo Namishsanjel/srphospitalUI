@@ -437,7 +437,7 @@ An IIFE that runs when `.everwell-navigation` exists. It:
 - Re-closes menus on resize/page-show and restores panels on breakpoint change.
 
 ### `app.js`
-Shared specialty search on Home: filters `#specialty-list li` by `#specialty-query`, toggles `#search-empty`, and an "All specialties" reset link. No-ops on pages without `#specialty-search`.
+Shared specialty search on Home: filters `#specialty-list li` by `#specialty-query`, toggles `#search-empty`, and an "All specialities" reset link. No-ops on pages without `#specialty-search`.
 
 ### Page scripts
 - `departments.js` — search + A–Z filter of `.department-item` (via `data-name`/`data-terms`), `#department-empty`; `revealLinkedDepartment()` reacts to hash/`everwell:navigate-section` to scroll to a `.department-item` or `.featured-department` target.
