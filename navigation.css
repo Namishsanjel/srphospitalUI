@@ -22,7 +22,7 @@ html.navigation-open { overflow: hidden; }
   color: #18364f;
   font-family: var(--body);
   font-size: clamp(12px, 1.05vw, 15px);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.25;
   white-space: nowrap;
   text-decoration: none;
@@ -30,7 +30,7 @@ html.navigation-open { overflow: hidden; }
 }
 .site-header.everwell-navigation .desktop-nav > a:hover,
 .site-header.everwell-navigation .desktop-nav > button:hover { color: #0878ff; }
-.site-header.everwell-navigation .header-cta { display: inline-flex; min-height: 48px; margin-left: clamp(23px, 2.4vw, 38px); font-size: 12px; padding-inline: 22px; }
+.site-header.everwell-navigation .header-cta { display: inline-flex; min-height: 48px; margin-left: clamp(23px, 2.4vw, 38px); font-size: clamp(12px, 1.05vw, 15px); padding-inline: 22px; }
 .site-header.everwell-navigation .menu-toggle,
 .site-header.everwell-navigation .mobile-nav { display: none; }
 .nav-chevron { flex: 0 0 auto; width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; transition: transform 180ms ease; }
@@ -46,7 +46,7 @@ html.navigation-open { overflow: hidden; }
 .mega-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(310px, 31.5%); }
 .mega-main { min-width: 0; padding: 30px 38px 28px var(--nav-gutter); }
 .mega-eyebrow { margin: 0 0 8px; color: #0878ff; font: 500 12px/1.4 var(--body); letter-spacing: .07em; }
-.everwell-navigation h2.mega-title { margin: 0 0 22px; color: #102f48; font: 400 clamp(29px, 2.65vw, 40px)/1.12 var(--heading); letter-spacing: -.045em; }
+.everwell-navigation h2.mega-title { margin: 0 0 22px; color: #102f48; font: 600 clamp(29px, 2.65vw, 40px)/1.12 var(--heading); letter-spacing: -.045em; }
 .mega-links { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 36px; }
 .mega-link { display: grid; grid-template-columns: 54px minmax(0, 1fr) 17px; align-items: center; gap: 16px; min-width: 0; min-height: 87px; color: #102f48; font-size: clamp(19px, 1.65vw, 25px); line-height: 1.15; letter-spacing: -.03em; text-decoration: none; }
 .mega-link-art { width: 54px; height: 54px; max-width: none; object-fit: contain; }
@@ -61,7 +61,7 @@ html.navigation-open { overflow: hidden; }
 .mega-footer .icon { width: 15px; height: 15px; stroke-width: 1.5; }
 .mega-feature { min-width: 0; padding: 70px var(--nav-gutter) 32px 34px; background: #eaf5fd; }
 .mega-feature-photo { width: 100%; height: auto; aspect-ratio: 1.65; object-fit: cover; }
-.everwell-navigation .mega-feature h3 { margin: 23px 0 24px; color: #102f48; font: 400 clamp(28px, 2.5vw, 37px)/1.1 var(--heading); letter-spacing: -.045em; }
+.everwell-navigation .mega-feature h3 { margin: 23px 0 24px; color: #102f48; font: 600 clamp(28px, 2.5vw, 37px)/1.1 var(--heading); letter-spacing: -.045em; }
 .mega-feature-link { display: inline-flex; align-items: center; gap: 14px; color: #102f48; font-size: clamp(15px, 1.3vw, 19px); line-height: 1.4; text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 1px; }
 .mega-feature-link:hover { color: #0878ff; }
 .everwell-navigation .mega-close { position: absolute; z-index: 2; top: 16px; right: var(--nav-gutter); display: inline-flex; align-items: center; gap: 10px; min-height: 32px; border: 0; padding: 0; background: transparent; color: #102f48; font-size: 14px; cursor: pointer; }
@@ -95,9 +95,9 @@ html.navigation-open { overflow: hidden; }
   .site-header.everwell-navigation .mobile-nav { position: absolute; top: 100%; left: 0; right: 0; max-height: calc(100dvh - var(--navigation-bottom, 98px)); overflow-y: auto; overscroll-behavior: contain; padding: 8px var(--nav-gutter) 24px; background: white; border-top: 1px solid #e4e8eb; box-shadow: none; }
   .site-header.everwell-navigation .mobile-nav:not([hidden]) { display: block; }
   .site-header.everwell-navigation .mobile-nav > a,
-  .site-header.everwell-navigation .mobile-nav > button { display: flex; align-items: center; justify-content: space-between; gap: 18px; width: 100%; min-height: 60px; border: 0; border-bottom: 1px solid #dce3e8; border-radius: 0; margin: 0; padding: 13px 0; background: transparent; color: #102f48; font-size: 20px; line-height: 1.25; text-align: left; text-decoration: none; cursor: pointer; }
+  .site-header.everwell-navigation .mobile-nav > button { display: flex; align-items: center; justify-content: space-between; gap: 18px; width: 100%; min-height: 60px; border: 0;   border-bottom: 1px solid #dce3e8; border-radius: 0; margin: 0; padding: 13px 0; background: transparent; color: #102f48; font-family: var(--body); font-size: 20px; font-weight: 500; line-height: 1.25; text-align: left; text-decoration: none; cursor: pointer; }
   .site-header.everwell-navigation .mobile-nav > button[aria-expanded="true"] { color: #0878ff; }
-  .site-header.everwell-navigation .mobile-nav > .mobile-appointment { min-height: 50px; justify-content: center; margin-top: 18px; padding: 14px 20px; color: white; background: #102f48; border: 1px solid #102f48; font-size: 16px; }
+  .site-header.everwell-navigation .mobile-nav > .mobile-appointment { min-height: 50px; justify-content: center; margin-top: 18px; padding: 14px 20px; color: white; background: #102f48; border: 1px solid #102f48; font-family: var(--body); font-size: 16px; font-weight: 600; }
   .mobile-nav .nav-chevron { width: 16px; height: 16px; }
   .everwell-navigation .mobile-nav .mega-panel { position: static; max-height: none; overflow: visible; border: 0; background: white; animation: none; }
   .mobile-nav .mega-layout { display: block; }
@@ -124,4 +124,28 @@ html.navigation-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .mega-panel, .mega-backdrop { animation: none !important; }
   .nav-chevron, .mega-trigger::after, .mega-link > .icon { transition: none !important; }
+}
+
+/* Nav underline: derive the chevron offset from the actual chevron size + item gap
+   (replaces the hardcoded right:20px) and apply the active underline to plain links
+   (e.g. the About link using data-current-section). */
+.site-header.everwell-navigation .desktop-nav { --nav-item-gap: 7px; --nav-chevron-size: 13px; }
+.site-header.everwell-navigation .desktop-nav > .mega-trigger::after {
+  right: calc(var(--nav-chevron-size) + var(--nav-item-gap));
+}
+.site-header.everwell-navigation .desktop-nav > a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  right: 0;
+  bottom: -10px;
+  left: 0;
+  background: #0878ff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+.site-header.everwell-navigation .desktop-nav > a[aria-current="page"]::after,
+.site-header.everwell-navigation .desktop-nav > a[data-current-section]::after {
+  transform: scaleX(1);
 }

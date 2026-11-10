@@ -300,9 +300,11 @@ Note: The dominant mobile breakpoint is **700px**; navigation collapses to mobil
 Structure: `.site-header.everwell-navigation` > `.header-inner.container` containing `.brand`, `.desktop-nav` (links + `.mega-trigger` buttons), `.header-cta.button`, `.menu-toggle`; then `.mobile-nav#mobile-nav` (hidden), `.navigation-menus` (filled by JS), a `<noscript>` fallback, followed by `.mega-backdrop`.
 - Brand: logo image + `.brand-name` (two `span`s: hospital name, second line "Memorial Trust Hospital").
 - Desktop nav links/buttons font `clamp(12px, 1.05vw, 15px)`; `.mega-trigger` has `.nav-chevron`. Active/hover underline `#0878ff`.
+- **Only Services and Departments are dropdowns** (the only items with `.nav-chevron`). "Our team", "Health & wellness" and **"About" (links to `about.html`)** are plain links, no chevron/panel/slot. The old About mega panel was removed from `navigation.js` (the `menus` object now has `services` + `departments` only).
+- Active underline: spans exactly the label (triggers stop short of the chevron using `right: calc(var(--nav-chevron-size) + var(--nav-item-gap))`); plain links use `left:0;right:0`. Both 2px `#0878ff`, `bottom:-10px`. Plain-link active state is set by `aria-current="page"` (e.g. `about.html`) or `data-current-section` (e.g. `quality-safety.html`'s About link).
 - Desktop shown only ≥1181px; below that `.desktop-nav` and `.header-cta` hidden, `.menu-toggle` shown.
-- Mega panels are **generated in JS** into `.navigation-menus` (see §6); `.mega-trigger[data-menu="services|departments|wellness|about"]` toggles them.
-- Mobile: `.mobile-nav` becomes a stacked menu with items and the same mega-trigger buttons; `.mobile-appointment` is a dark CTA (`background:#102f48`).
+- Mega panels are **generated in JS** into `.navigation-menus` (see §6); `.mega-trigger[data-menu="services|departments"]` toggles them.
+- Mobile: `.mobile-nav` becomes a stacked menu with items and the same mega-trigger buttons (Services, Departments); "About", "Our team", "Health & wellness" are plain links; `.mobile-appointment` is a dark CTA (`background:#102f48`).
 
 ### Buttons
 `styles.css` `.button`:
@@ -350,13 +352,32 @@ Structure: `.site-header.everwell-navigation` > `.header-inner.container` contai
         <p class="eyebrow">GET IN TOUCH</p>
         <h2 id="contact-title">Let's find your next step.</h2>
         <p>Tell us what you need, ...</p>
-        <a class="button contact-button" href="contact.html#contact-form">Request an appointment <svg class="icon">...</svg></a>
       </div>
-      <nav class="contact-links" aria-label="Contact and visit information">
-        <a href="...">Appointments <svg class="icon">...</svg></a>
-        <a href="...">Patient support <svg class="icon">...</svg></a>
-        <a href="...">Planning your visit <svg class="icon">...</svg></a>
-      </nav>
+      <div class="contact-inquire">
+        <form class="contact-inquire-form" novalidate>
+          <div class="inquire-row inquire-row-split">
+            <label class="inquire-field">
+              <span class="inquire-label">Name</span>
+              <input type="text" name="name" autocomplete="name">
+            </label>
+            <label class="inquire-field">
+              <span class="inquire-label">Email</span>
+              <input type="email" name="email" autocomplete="email">
+            </label>
+          </div>
+          <label class="inquire-field">
+            <span class="inquire-label">Phone number</span>
+            <input type="tel" name="phone" autocomplete="tel">
+          </label>
+          <label class="inquire-field">
+            <span class="inquire-label">Anything we should know?</span>
+            <textarea name="message" rows="1"></textarea>
+          </label>
+        </form>
+        <div class="inquire-action">
+          <a class="button contact-button" href="appointments.html">Request an appointment <svg class="icon" aria-hidden="true">...</svg></a>
+        </div>
+      </div>
     </div>
   </section>
   <footer class="site-footer"> ... </footer>
@@ -365,31 +386,60 @@ Structure: `.site-header.everwell-navigation` > `.header-inner.container` contai
 ```
 - `.contact-footer-flow` is a 1-column grid; `.contact-section` and `.site-footer` share `grid-area: 1/1` and `2/1` respectively, and the stethoscope is placed in the section's cell.
 - `.contact-section` background `var(--stone)`, `--contact-height:auto; min-height:0`.
-- `.stethoscope-transition`: `position:relative; grid-area:1/1; align-self:end; justify-self:end; transform:translateY(12%); width:min(54vw,760px)`; mobile `width:min(75vw,400px)`. It overlaps down into the footer.
-- (Note: the `id`/`aria-labelledby` and cross-links vary slightly per page — e.g. some pages use `id="appointments"`/`next-step-title`.)
+- **Left column (`.contact-copy`)**: eyebrow, heading and paragraph only. The former right-hand `.contact-links` (Appointments / Patient support / Planning your visit) was replaced by an enquiry form; the "Request an appointment" button moved here to the right column, below the form.
+- **Right column (`.contact-inquire`)**: append-only block in `styles.css`. Form fields are single underline-style lines (bottom border only, no boxes); each `<label class="inquire-field">` holds a small muted `<span class="inquire-label">` plus an input. Row 1 is Name | Email side by side, separated by a thin vertical `--line` divider (`.inquire-row-split`); Row 2 is Phone number (`type="tel"`); Row 3 is a textarea ("Anything we should know?") that looks single-line and grows (`field-sizing: content`). Focus uses the contact-form focus colour (`#6e8ca2` underline, `2px` `#dce6eb` outline). The action is the `.button.contact-button` link (→ `appointments.html`), right-aligned; **the form is visual only — it sends nothing** (a real backend or `contact.js` mailto pattern would connect at `.contact-inquire-form`).
+- `.stethoscope-transition`: `position:relative; grid-area:1/1; align-self:end; justify-self:end; transform:translateY(12%); width:min(54vw,760px)`; mobile `width:min(75vw,400px)`. It overlaps down into the footer; the form sits above its bottom-anchored position and does not collide with the fields or button (verified by bounding boxes at 1440/1024/768/390).
+- **Gradient transitions (append-only `styles.css` block):** `.contact-section::after` eases `--stone` → footer white over 80px (60px mobile) inside the bottom padding; `.hero-photo::after`, `.space-feature::after`, `.people-picture::after` and the added top layer on `.about-hero::after`/`.our-hero::after` soften photo/white joins. All overlays are `pointer-events:none` and add no layout height.
+- (Note: the `id`/`aria-labelledby` and paragraph text vary slightly per page — e.g. some pages use `id="appointments"`/`next-step-title`, and `services.html` says "right service".)
 
 ### Footer
-`styles.css` (`.site-footer`, `.footer-inner`); Home markup `index.html` lines 230–267.
+`styles.css` (append-only footer block, which overrides the earlier `.site-footer` rules); Home markup near the end of `index.html`. Present on every page inside `.contact-footer-flow`.
 ```html
 <footer class="site-footer">
   <div class="footer-inner container">
     <div class="footer-brand">
       <a class="brand" href="index.html#home">...logo + brand-name...</a>
       <p class="hospital-tagline" lang="hi">सेवा ही सबसे बड़ा संकल्प</p>
-      <small>© 2026 Sita Ram Prasad Memorial Trust Hospital. All rights reserved.</small>
+      <div class="footer-brand-row">
+        <p class="footer-serving">Serving our community since 18 October 2018</p>
+        <a class="footer-nabh" href="quality-safety.html"><span class="footer-nabh-logo"><img src="assets/quality/nabh-logo.png" alt="NABH accreditation" width="90" height="32"></span><span class="footer-nabh-text">NABH certified</span></a>
+      </div>
     </div>
     <nav class="footer-column" aria-label="Care links"><h2>Care</h2> <a>...</a>...</nav>
     <nav class="footer-column" aria-label="Visit links"><h2>Your visit</h2> ...</nav>
     <nav class="footer-column" aria-label="Hospital links"><h2>Our hospital</h2> ...</nav>
-    <div class="footer-legal"><a>Privacy</a> <a>Terms</a> <a>Accessibility</a> <a>Contact</a></div>
+    <nav class="footer-column footer-column-contact" aria-label="Emergency and contact">
+      <h2>Emergency</h2>
+      <p class="footer-contact-line">Emergency: [EMERGENCY NUMBER]</p><!-- comment -->
+      <p class="footer-contact-line">Ambulance: [AMBULANCE NUMBER]</p><!-- comment -->
+      <p class="footer-contact-line">Address: [ADDRESS]</p><!-- comment -->
+      <p class="footer-contact-line">OPD hours: [OPD HOURS]</p><!-- comment -->
+    </nav>
+  </div>
+  <div class="footer-bottom container">
+    <p class="footer-copyright">© 2026 Sita Ram Prasad Memorial Trust Hospital. All rights reserved.</p>
+    <nav class="footer-legal" aria-label="Legal links"><a>Privacy</a> <a>Terms</a> <a>Accessibility</a> <a>Contact</a></nav>
+    <a class="footer-top" href="#top">Back to top <svg class="icon">...</svg></a>
   </div>
 </footer>
 ```
-- `.footer-inner` grid `2.3fr 1.15fr 1.15fr 1.15fr`, gap `clamp(12px, 2.2vw, 32px)`, `padding-top: clamp(23px, 3.4vw, 48px)`.
-- `.footer-column h2` small label style (`clamp(9px, .95vw, 12px)`, weight 500).
-- `.footer-legal` spans `grid-column: 2 / -1`, right-aligned.
-- The tagline uses the Noto Sans Devanagari font (`.hospital-tagline` in `hospital.css`).
-- Mobile: 2-column grid; brand and legal span full width.
+- **Full-screen image footer.** `.site-footer` is a 100svh (100vh fallback) section with `background-color: var(--ink-deep)` (fallback) and `background-image: url("assets/footer-full.jpeg")` — a 16:9 photo (1376×768, ~539 KB; copied as-is from the clone-root `footer-full.jpeg`, not recompressed) of five staff on a navy wall. `background-size: 100% auto; background-position: center bottom; no-repeat` (width-fill, bottom-anchored) so the full group stays visible at every width (all 5 people at 390 and 768) and the people sit **below** the text. One request; HTTP 200.
+- **Layout over the image:** content sits on the solid `--ink-deep` area above the image. Top band = brand block (logo on light panel, tagline, serving line + NABH) left and the four link columns (Care / Your visit / Our hospital / Emergency) right. The footer reserves the image's height as bottom padding (`calc(100svw * 768 / 1376)`), so it grows taller than 100svh when content needs room (faces are never covered); the bottom band is pinned `position:absolute; bottom:0` over the floor edge. Face band (12–45% of the image) is verified **clear of all text blocks** at 1440 (faces y325–588) and 1024 (y404–590).
+- **Scrims:** no top scrim (text is on solid navy above the image). Bottom scrim `.site-footer::after`: `linear-gradient(0deg, rgb(16 47 72 / 95%) 0%, rgb(16 47 72 / 92%) 40%, rgb(16 47 72 / 70%) 70%, rgb(16 47 72 / 0%) 100%)` over the floor band. Contrast at 5 sampled points each (pure-background sampling): body 10.09, links 10.09, headings 13.80, rule 7.93 @1440 / 6.37 @390 — all ≥ 4.5:1. Rule (`border-top`) `rgb(216 221 226 / 85%)`; focus outline `2px solid var(--line)`.
+- **Single seam:** one gradient only — `.contact-section::after`: `linear-gradient(180deg, rgb(241 240 235 / 0%) 0%, var(--stone) 12%, var(--ink-deep) 100%)`, 80px (60px mobile), inside the section's bottom padding (no layout change). Stethoscope `translateY(0)` keeps it above the seam.
+- **Top-band grid:** desktop `minmax(240px,2fr) repeat(4, minmax(0,1fr))` (brand + 4 columns, one row); ≤900px `1fr 1fr` with brand and Emergency spanning full width. `.footer-inner` has a per-range `min-height` (694px ≤900 / 725px ≤700) so the footer height is identical on every page at the same width despite per-page link-count differences.
+- `.footer-column h2` = Inter 600, 14px, `var(--paper)`; `.footer-column a` = 14px, line-height 1.7, `var(--line)`. "Serving our community since 18 October 2018" is 14px (same as links).
+- **Emergency column** entries are **plain text placeholders** (`[EMERGENCY NUMBER]`, `[AMBULANCE NUMBER]`, `[ADDRESS]`, `[OPD HOURS]`) each followed by an HTML comment; no `tel:` pattern exists so they are not links.
+- `.footer-bottom` (absolute, bottom 0): copyright left, `.footer-legal` centred, `.footer-top` ("Back to top" → `#top`, `#i-right` icon rotated −90°) right, under `1px solid rgb(216 221 226 / 85%)`. `id="top"` is on `<body>`; global `html { scroll-behavior:smooth }` handles the scroll.
+- **Logo:** the JPEG has an opaque white background, so it sits on a `var(--paper)` panel (`border-radius:6px`, 6px padding) to avoid a white box on navy.
+- **Stethoscope:** its dark cable would vanish on navy, so `.contact-footer-flow .stethoscope-transition { transform: translateY(0) }` keeps it fully above the footer (its bottom meets the footer top), over the stone→navy gradient.
+- **NABH certification** sits in the brand column under the tagline (inside `.footer-brand-row`, which puts it beside the serving line where width allows): `.footer-nabh` → `quality-safety.html`, image `assets/quality/nabh-logo.png` `alt="NABH accreditation"` on a `var(--paper)` light panel (same approach as the hospital logo; the PNG has an opaque white background). Text "NABH certified". No accreditation number/date invented.
+- The tagline uses Noto Sans Devanagari (`.hospital-tagline` in `hospital.css`).
+- Mobile: single column; brand spans full width, then the four link columns in two columns; Emergency spans full width; `.footer-bottom` stacks left-aligned. The footer grows taller than the viewport when the stacked content needs room, with the image still width-filled and bottom-anchored so the people stay visible below the content (all 5 at 390 and 768).
+- Footer heights (identical on every page at the same width): **1025px @1440, 900px @1024, 1123px @768, 943px @390** (≥100svh; grows so faces clear the text).
+- **Wordmark (decorative, live text).** Inside `<footer class="site-footer">` (after `.footer-bottom`), a single `<div class="footer-wordmark" aria-hidden="true">` with two `<span>`s holds the hospital name in Manrope 800, uppercase: line 1 "Sita Ram Prasad" (`clamp(28px, 6.75vw, 104px)`) and line 2 "Memorial Trust Hospital" (`clamp(14px, 3.4vw, 48.5px)`, ~85% of line 1's width; `clamp(22px, 5vw, 60px)` / `clamp(12px, 2.4vw, 30px)` @≤900; `nowrap`), centred, `--footer-wordmark-w` wide (80% desktop / 88% ≤900). At a 1904px viewport line 1 measures ~941px (49%) and line 2 ~807px (42%). Colour is a `background-clip:text` gradient `rgb(255 255 255 / 90%) → rgb(255 255 255 / 35%)` (flat, no outline/glow). **The gradient is painted on EACH line span separately** (`display:block; background-image: …; background-size:100% 100%; -webkit-background-clip:text; background-clip:text; color:transparent`) — not on the parent. Putting `background-clip:text` on the flex parent left line 2 unpainted (only line 1 rendered), because the parent's clipped background only fills its own text, not block child glyphs. `position:absolute; z-index:1; pointer-events:none` — above the photo, below the content text. The real name remains in the footer logo block.
+- **Retuning for a new photo (one variable):** `--footer-wordmark-top` = the fraction of the image height (from its top, 0–1) where the block's **centre** sits. Defaults: **0.70** @≥1024, **0.672** @481–900, hidden at ≤480 (the tight mobile crop leaves no clear band between the crossed arms and the bottom band). It is anchored to the image area via `--footer-image-h: calc(100svw * 768 / 1376)` and `bottom: calc(var(--footer-image-h) * (1 - var(--footer-wordmark-top)))`, so it does not track the viewport. If the new photo's aspect ratio differs, update `--footer-image-h` to `calc(100svw * <h> / <w>)`. Keep its top ≥ the arms (≈58% of image height) and its bottom ≤ the `.footer-bottom` top.
+- Verified clearance (wordmark box → faces-end / bottom-band top): **1440** y715–854 vs 691 / 960; **1024** y679–778 vs 663 / 838; **768** y949–1023 vs 946 / 1024; **390** hidden. No overlap with links, columns or bottom band; footer height unchanged; nearby link colour unchanged (`--line`).
 
 ### Hero patterns
 - **Home hero** (`styles.css` `.hero`, `.hero-intro`, `.hero-summary`, `.hero-photo`, `.patient-paths`): 2-column intro, full-width photo (aspect `804/322`), then `.patient-paths` dark 4-up link bar (`background:var(--ink-deep)`).

@@ -15,15 +15,15 @@
 .footer-brand .brand .brand-name { display: flex; flex-direction: column; gap: 3px; font-family: var(--heading); letter-spacing: -.035em; line-height: 1.15; }
 .brand .brand-name > span,
 .site-header.everwell-navigation .brand .brand-name > span,
-.footer-brand .brand .brand-name > span { font-size: 19px; font-weight: 500; letter-spacing: -.035em; line-height: 1.15; }
+.footer-brand .brand .brand-name > span { font-size: 19px; font-weight: 600; letter-spacing: -.035em; line-height: 1.15; }
 .brand .brand-name > span + span,
 .site-header.everwell-navigation .brand .brand-name > span + span,
-.footer-brand .brand .brand-name > span + span { font-size: 13px; letter-spacing: -.015em; font-weight: 400; }
+.footer-brand .brand .brand-name > span + span { font-size: 13px; letter-spacing: -.015em; font-weight: 600; }
 .site-header.everwell-navigation .brand { margin-right: 26px; }
 .site-header.everwell-navigation .desktop-nav { gap: clamp(15px, 1.5vw, 24px); }
 .site-header.everwell-navigation .header-cta { margin-left: 25px; padding-inline: 18px; }
 .site-header.everwell-navigation .header-cta > .icon { display: none; }
-.hospital-tagline { font-family: "Noto Sans Devanagari", sans-serif; font-weight: 400; }
+.hospital-tagline { font-family: "Inter", "Noto Sans Devanagari", sans-serif; font-weight: 400; }
 .hero-summary p.hero-tagline { margin: 0 0 15px; color: #0878ff; font-size: clamp(18px, 1.7vw, 25px); line-height: 1.65; }
 .footer-brand > p.hospital-tagline { margin: 12px 0 0 68px; color: #53718a; font-size: 16px; line-height: 1.65; }
 .footer-brand > small { max-width: 320px; font-size: 11px; line-height: 1.6; }
@@ -44,7 +44,7 @@
 .visiting-service { display: grid; grid-template-columns: 80px minmax(0, 1fr) auto; align-items: center; gap: 35px; padding-block: 65px; border-bottom: 1px solid var(--line); }
 .visiting-service > img { width: 80px; height: 80px; }
 .visiting-service .eyebrow { margin: 0 0 10px; color: #0878ff; }
-.visiting-service h2 { margin: 0; font: 400 clamp(30px, 3vw, 42px)/1.15 var(--heading); letter-spacing: -.045em; }
+.visiting-service h2 { margin: 0; font: 600 clamp(30px, 3vw, 42px)/1.15 var(--heading); letter-spacing: -.045em; }
 .visiting-service p:not(.eyebrow) { max-width: 570px; margin: 12px 0 0; font-size: 17px; line-height: 1.55; color: #63788a; }
 .visiting-service .text-link { font-size: 16px; }
 .department-footer-inner { gap: 35px; flex-wrap: wrap; }

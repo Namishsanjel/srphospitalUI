@@ -5,7 +5,7 @@
 .contact-hero { padding-block: clamp(56px, 6.5vw, 96px) clamp(48px, 5.6vw, 80px); }
 .contact-hero-inner { display: grid; grid-template-columns: 1.15fr .85fr; align-items: end; gap: 64px; }
 .contact-hero .eyebrow { margin: 0 0 22px; }
-.contact-hero h1 { margin: 0; font-family: var(--heading); font-size: clamp(64px, 7.1vw, 104px); font-weight: 400; letter-spacing: -.06em; line-height: .98; }
+.contact-hero h1 { margin: 0; font-family: var(--heading); font-size: clamp(64px, 7.1vw, 104px); font-weight: 700; letter-spacing: -.06em; line-height: .98; }
 .contact-hero-summary { max-width: 370px; justify-self: end; padding-bottom: 7px; }
 .contact-hero-summary p { margin: 0; color: var(--contact-muted); font-size: clamp(18px, 1.6vw, 22px); line-height: 1.6; }
 .contact-hero-summary .text-link { margin-top: 26px; }
@@ -16,7 +16,7 @@
 .detail-icon { width: 32px; height: 32px; fill: none; stroke: #4b6c84; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .detail-card-copy { min-width: 0; }
 .detail-kicker { margin: 0 0 14px; color: var(--contact-muted); font-size: 10px; font-weight: 600; letter-spacing: .14em; line-height: 1; }
-.detail-card-copy h3 { margin: 0; font-size: clamp(21px, 1.9vw, 26px); font-weight: 400; letter-spacing: -.035em; line-height: 1.2; }
+.detail-card-copy h3 { margin: 0; font-size: clamp(21px, 1.9vw, 26px); font-weight: 600; letter-spacing: -.035em; line-height: 1.2; }
 .detail-value { display: inline-block; max-width: 100%; margin-top: 12px; color: #435f74; font-size: clamp(16px, 1.45vw, 20px); line-height: 1.5; overflow-wrap: anywhere; text-underline-offset: 5px; text-decoration-thickness: 1px; }
 .detail-value:hover { color: var(--blue); }
 .detail-card-copy > p:not(.detail-kicker) { margin: 12px 0 0; color: #435f74; font-size: 17px; line-height: 1.5; }
@@ -26,7 +26,7 @@
 .contact-form-inner { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); align-items: start; gap: clamp(56px, 8vw, 112px); }
 .contact-form-aside { min-width: 0; }
 .form-intro-copy .eyebrow { margin: 0 0 20px; }
-.form-intro-copy h2 { margin: 0; font-size: clamp(46px, 4.8vw, 70px); font-weight: 400; letter-spacing: -.055em; line-height: 1.02; }
+.form-intro-copy h2 { margin: 0; font-size: clamp(46px, 4.8vw, 70px); font-weight: 600; letter-spacing: -.055em; line-height: 1.02; }
 .form-intro-copy > p:not(.eyebrow) { max-width: 340px; margin: 22px 0 0; color: var(--contact-muted); font-size: 18px; line-height: 1.6; }
 .form-contact-visual { width: calc(100% + 52px); max-width: 520px; margin: 32px -26px -12px; }
 .form-contact-photo { width: 100%; height: auto; }
@@ -50,11 +50,11 @@
 .contact-questions { padding-block: clamp(64px, 7vw, 104px); }
 .contact-questions-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
 .contact-questions-heading .eyebrow { margin: 0 0 18px; }
-.contact-questions-heading h2 { margin: 0; font-size: clamp(38px, 4.4vw, 64px); line-height: 1.05; font-weight: 400; letter-spacing: -.055em; }
+.contact-questions-heading h2 { margin: 0; font-size: clamp(38px, 4.4vw, 64px); line-height: 1.05; font-weight: 600; letter-spacing: -.055em; }
 .contact-questions-heading > .text-link { margin-bottom: 5px; }
 .contact-faq-list { margin-top: 42px; border-top: 1px solid var(--line); }
 .contact-faq-list details { border-bottom: 1px solid var(--line); scroll-margin-top: 28px; }
-.contact-faq-list summary { display: grid; grid-template-columns: 46px minmax(0, 1fr) 20px; align-items: center; gap: 16px; min-height: 86px; padding-block: 23px; color: var(--ink-deep); font-size: clamp(18px, 1.6vw, 22px); font-weight: 400; letter-spacing: -.015em; line-height: 1.4; list-style: none; cursor: pointer; }
+.contact-faq-list summary { display: grid; grid-template-columns: 46px minmax(0, 1fr) 20px; align-items: center; gap: 16px; min-height: 86px; padding-block: 23px; color: var(--ink-deep); font-family: var(--body); font-size: clamp(18px, 1.6vw, 22px); font-weight: 500; letter-spacing: -.015em; line-height: 1.4; list-style: none; cursor: pointer; }
 .contact-faq-list summary::-webkit-details-marker { display: none; }
 .faq-number { color: #698598; font-size: 12px; font-variant-numeric: tabular-nums; letter-spacing: .02em; }
 .faq-toggle { position: relative; width: 18px; height: 18px; }

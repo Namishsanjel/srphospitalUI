@@ -35,7 +35,7 @@
 .our-hero-copy h1 {
   max-width: 8em;
   font-size: clamp(38px, 5.1vw, 72px);
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -.052em;
   line-height: .99;
 }

@@ -15,7 +15,7 @@
   color: var(--ink-deep);
   font-family: var(--heading);
   font-size: clamp(40px, 5.1vw, 72px);
-  font-weight: 400;
+  font-weight: 700;
   letter-spacing: -.055em;
   line-height: 1;
 }

@@ -12,14 +12,15 @@
   <meta property="og:url" content="https://everwell-hospital-care.manishpokharel2112.chatgpt.site/article-template">
   <meta property="og:image" content="https://everwell-hospital-care.manishpokharel2112.chatgpt.site/assets/consultation-hero.jpg">
   <link rel="icon" href="assets/srp-hospital-logo.jpeg" type="image/jpeg">
-  <link rel="preload" href="assets/inter-display-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope/Manrope-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="styles.css?v=screen-rhythm-3">
   <link rel="stylesheet" href="blog.css?v=masonry-reveal-1">
   <link rel="stylesheet" href="appointments.css?v=1">
   <link rel="stylesheet" href="navigation.css?v=srp-1">
   <link rel="stylesheet" href="hospital.css?v=srp-1">
 </head>
-<body class="blog-page article-template-page">
+<body class="blog-page article-template-page" id="top">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +46,7 @@
         <button class="mega-trigger" id="nav-services-trigger" type="button" data-menu="services" aria-expanded="false" aria-controls="mega-services">Services<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
         <button class="mega-trigger" id="nav-departments-trigger" type="button" data-menu="departments" aria-expanded="false" aria-controls="mega-departments">Departments<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
         <a href="blog.html" aria-current="page">Health &amp; wellness</a>
-        <button class="mega-trigger" id="nav-about-trigger" type="button" data-menu="about" aria-expanded="false" aria-controls="mega-about">About<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+        <a href="about.html">About</a>
       </nav>
       <a class="button header-cta" href="appointments.html">Book an appointment <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
       <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
@@ -57,8 +58,7 @@
       <button class="mega-trigger" id="mobile-departments-trigger" type="button" data-menu="departments" aria-expanded="false" aria-controls="mega-departments">Departments<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
       <div class="mobile-mega-slot" data-mobile-slot="departments"></div>
       <a href="blog.html" aria-current="page">Health &amp; wellness <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
-      <button class="mega-trigger" id="mobile-about-trigger" type="button" data-menu="about" aria-expanded="false" aria-controls="mega-about">About<svg class="nav-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
-      <div class="mobile-mega-slot" data-mobile-slot="about"></div>
+      <a href="about.html">About <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
       <a class="mobile-appointment" href="appointments.html">Book an appointment <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
     </nav>
     <div class="navigation-menus"></div>
@@ -105,13 +105,32 @@
           <p class="eyebrow">GET IN TOUCH</p>
           <h2 id="contact-title">Let’s find your next step.</h2>
           <p>Tell us what you need, and we’ll help you find the right care and a time that works for you.</p>
-          <a class="button contact-button" href="appointments.html">Request an appointment <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
         </div>
-        <nav class="contact-links" aria-label="Contact and visit information">
-          <a href="appointments.html">Appointments <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
-          <a href="patient-support.html">Patient support <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
-          <a href="plan-your-visit.html">Planning your visit <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
-        </nav>
+        <div class="contact-inquire">
+          <form class="contact-inquire-form" novalidate>
+            <div class="inquire-row inquire-row-split">
+              <label class="inquire-field">
+                <span class="inquire-label">Name</span>
+                <input type="text" name="name" autocomplete="name">
+              </label>
+              <label class="inquire-field">
+                <span class="inquire-label">Email</span>
+                <input type="email" name="email" autocomplete="email">
+              </label>
+            </div>
+            <label class="inquire-field">
+              <span class="inquire-label">Phone number</span>
+              <input type="tel" name="phone" autocomplete="tel">
+            </label>
+            <label class="inquire-field">
+              <span class="inquire-label">Anything we should know?</span>
+              <textarea name="message" rows="1"></textarea>
+            </label>
+          </form>
+          <div class="inquire-action">
+            <a class="button contact-button" href="appointments.html">Request an appointment <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
+          </div>
+        </div>
       </div>
     </section>
     <footer class="site-footer">
@@ -119,7 +138,10 @@
         <div class="footer-brand">
           <a class="brand" href="index.html#home" aria-label="Sita Ram Prasad Memorial Trust Hospital home"><img src="assets/srp-hospital-logo.jpeg" alt="" width="60" height="60"><span class="brand-name"><span>Sita Ram Prasad</span><span>Memorial Trust Hospital</span></span></a>
           <p class="hospital-tagline" lang="hi">सेवा ही सबसे बड़ा संकल्प</p>
-          <small>© 2026 Sita Ram Prasad Memorial Trust Hospital. All rights reserved.</small>
+          <div class="footer-brand-row">
+            <p class="footer-serving">Serving our community since 18 October 2018</p>
+            <a class="footer-nabh" href="quality-safety.html"><span class="footer-nabh-logo"><img src="assets/quality/nabh-logo.png" alt="NABH accreditation" width="90" height="32"></span><span class="footer-nabh-text">NABH certified</span></a>
+          </div>
         </div>
         <nav class="footer-column" aria-label="Care links">
           <h2>Care</h2>
@@ -144,12 +166,31 @@
           <a href="quality-safety.html">Quality &amp; safety</a>
           <a href="careers.html">Careers</a>
         </nav>
-        <div class="footer-legal">
+        <nav class="footer-column footer-column-contact" aria-label="Emergency and contact">
+          <h2>Emergency</h2>
+          <p class="footer-contact-line">Emergency: [EMERGENCY NUMBER]</p>
+          <!-- EMERGENCY NUMBER: replace [EMERGENCY NUMBER] with the hospital's confirmed emergency phone; add a tel: link if a tel pattern is adopted. -->
+          <p class="footer-contact-line">Ambulance: [AMBULANCE NUMBER]</p>
+          <!-- AMBULANCE NUMBER: replace [AMBULANCE NUMBER] with the confirmed ambulance phone. -->
+          <p class="footer-contact-line">Address: [ADDRESS]</p>
+          <!-- ADDRESS: replace [ADDRESS] with the confirmed hospital address. -->
+          <p class="footer-contact-line">OPD hours: [OPD HOURS]</p>
+          <!-- OPD HOURS: replace [OPD HOURS] with the confirmed outpatient department hours. -->
+        </nav>
+      </div>
+      <div class="footer-bottom container">
+        <p class="footer-copyright">© 2026 Sita Ram Prasad Memorial Trust Hospital. All rights reserved.</p>
+        <nav class="footer-legal" aria-label="Legal links">
           <a href="privacy.html">Privacy</a>
           <a href="terms.html">Terms</a>
           <a href="accessibility.html">Accessibility</a>
           <a href="contact.html">Contact</a>
-        </div>
+        </nav>
+        <a class="footer-top" href="#top">Back to top <svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></a>
+      </div>
+      <div class="footer-wordmark" aria-hidden="true">
+        <span class="footer-wordmark-line footer-wordmark-line-1">Sita Ram Prasad</span>
+        <span class="footer-wordmark-line footer-wordmark-line-2">Memorial Trust Hospital</span>
       </div>
     </footer>
     <img class="stethoscope-transition" src="assets/stethoscope-cutout.png" alt="" aria-hidden="true">

@@ -1,10 +1,11 @@
 .quality-page { --quality-blue: #086fee; --quality-muted: #5b7286; color: var(--ink-deep); }
 .quality-page .eyebrow { margin: 0 0 17px; color: #0869de; font-size: 12px; font-weight: 500; letter-spacing: .15em; }
-.quality-page h1, .quality-page h2, .quality-page h3 { font-family: var(--heading); font-weight: 400; }
+.quality-page h1 { font-family: var(--heading); font-weight: 700; }
+.quality-page h2, .quality-page h3 { font-family: var(--heading); font-weight: 600; }
 .quality-page h2 { margin: 0; font-size: clamp(38px, 4.1vw, 59px); line-height: 1.04; letter-spacing: -.05em; }
 .quality-page .text-link { display: inline-flex; align-items: center; gap: 17px; width: fit-content; color: var(--ink-deep); font-size: 16px; line-height: 1.5; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
 .quality-page .text-link:hover { color: #0869de; }
-.quality-breadcrumb { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 30px; color: #607689; font-size: 13px; }
+.quality-breadcrumb { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 30px; color: #607689; font-weight: 500; font-size: 13px; }
 .quality-breadcrumb a { color: inherit; text-decoration: none; }
 .quality-breadcrumb a:hover { text-decoration: underline; }
 .quality-hero { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(35px, 5vw, 72px); padding-block: 38px 57px; }
@@ -64,7 +65,7 @@
 .quality-questions .quality-section-heading { margin-bottom: 36px; }
 .quality-faq details { border-top: 1px solid var(--line); }
 .quality-faq details:last-child { border-bottom: 1px solid var(--line); }
-.quality-faq summary { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 24px 0; list-style: none; font-size: clamp(19px, 1.8vw, 25px); line-height: 1.35; letter-spacing: -.025em; cursor: pointer; }
+.quality-faq summary { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 24px 0; list-style: none; font-family: var(--body); font-size: clamp(19px, 1.8vw, 25px); font-weight: 500; line-height: 1.35; letter-spacing: -.025em; cursor: pointer; }
 .quality-faq summary::-webkit-details-marker { display: none; }
 .quality-faq summary:hover { color: var(--quality-blue); }
 .quality-faq-toggle { position: relative; flex: 0 0 18px; width: 18px; height: 18px; }

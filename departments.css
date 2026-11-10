@@ -29,8 +29,14 @@
   margin: 0;
   color: #102f59;
   font-family: var(--heading);
-  font-weight: 600;
   letter-spacing: -.055em;
+}
+.department-hero h1 {
+  font-weight: 700;
+}
+.department-index h2,
+.featured-department h2 {
+  font-weight: 600;
 }
 .department-hero h1 { font-size: clamp(38px, 5.1vw, 66px); line-height: .98; }
 .department-hero-copy > p:not(.eyebrow) { max-width: 390px; margin: 18px 0 22px; font-size: clamp(15px, 1.6vw, 19px); line-height: 1.42; }

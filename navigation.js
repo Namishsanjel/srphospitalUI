@@ -32,20 +32,6 @@
       image: 'assets/consultation-hero.jpg', imagePosition: 'center',
       feature: 'The right care.\nThe right people.', featureLink: 'Explore our departments', featureHref: 'departments.html',
     },
-    about: {
-      eyebrow: 'OUR HOSPITAL', title: 'Get to know our hospital.',
-      links: [
-        ['About our hospital', 'hospital', 'about.html#about'],
-        ['Mission, vision & objectives', 'primary-care', 'about.html#approach'],
-        ['Our people', 'team', 'about.html#team'],
-        ['Quality & safety', 'shield', 'quality-safety.html'],
-        ['NABH certification', 'accreditation', 'quality-safety.html#accreditation'],
-        ['Contact & visiting', 'conversation', 'contact.html#contact-details'],
-      ],
-      footer: [['Contact us', 'contact.html'], ['Explore our hospital', 'about.html']],
-      image: 'assets/space-atrium-clean.webp', imagePosition: '25% center',
-      feature: 'Space to feel\nat ease.', featureLink: 'Discover our hospital', featureHref: 'about.html',
-    },
   };
 
   const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
