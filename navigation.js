@@ -23,8 +23,8 @@
       links: [
         ["General Surgery", "surgery", "general-surgery.html"],
         ["Obstetrics and Gynaecology", "womens-health", "obstetrics-gynaecology.html"],
-        ["Anesthesiology", "anesthesiology", "anesthesiology.html"],
-        ["Orthopedics", "orthopedics", "orthopedics.html"],
+        ["Anaesthesiology", "anesthesiology", "anesthesiology.html"],
+        ["Orthopaedics", "orthopedics", "orthopedics.html"],
         ["Paediatrics", "paediatrics", "paediatrics.html"],
         ["Urology", "urology", "urology.html"],
       ],

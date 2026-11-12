@@ -25,6 +25,10 @@
   --ink-deep: #102f48;
   --muted: #7c8994;
   --blue: #537fca;
+  --accent: #0878ff;          /* single accent: links, icons, illustrations */
+  --text-secondary: #536a7d;  /* shared secondary body text (>=4.5:1) */
+  --surface-warm: #f6f5f0;    /* off-white surface 1 */
+  --surface-cool: #f7f8f8;    /* off-white surface 2 */
   --line: #d8dde2;
   --utility: #f1f2f3;
   --stone: #f1f0eb;
@@ -1199,7 +1203,7 @@ h2, h3, h4 {
 
 /* Get in touch (stone) -> navy footer: vertical ease, same 80px band as before. */
 .contact-section::after {
-  background: linear-gradient(180deg, var(--stone) 0%, var(--stone) 40%, var(--ink-deep) 100%);
+  background: linear-gradient(180deg, var(--surface-warm) 0%, var(--surface-warm) 40%, var(--ink-deep) 100%);
 }
 @media (max-width: 700px) {
   .contact-section::after { height: 60px; }
@@ -1829,4 +1833,405 @@ h2, h3, h4 {
   .contact-footer-flow .site-footer { --footer-wordmark-top: 0.68; }
   .contact-footer-flow .site-footer .footer-wordmark-line-1 { font-size: clamp(22px, 5vw, 60px); }
   .contact-footer-flow .site-footer .footer-wordmark-line-2 { font-size: clamp(12px, 2.4vw, 30px); }
+}
+
+/* ---------------------------------------------------------------------------
+   Container alignment (page-scoped): match the reference container used by
+   Home / Our team / About so header, content, contact and footer share the
+   same left/right edges. Does not alter colours, type, copy or images.
+   --------------------------------------------------------------------------- */
+/* Services: its local --container narrowed the page; restore the reference
+   width/padding and reuse it for the contact section too. */
+html .services-page {
+  --container: min(1440px, calc(100% - clamp(44px, 12.6vw, 184px)));
+  --contact-container: min(1440px, calc(100% - clamp(44px, 12.6vw, 184px)));
+}
+/* Departments: --dept-container is applied to .container (content) while the
+   header/footer use --container; point both at the reference container. */
+html .departments-page {
+  --dept-container: min(1440px, calc(100% - clamp(44px, 12.6vw, 184px)));
+  --container: min(1440px, calc(100% - clamp(44px, 12.6vw, 184px)));
+  --contact-container: min(1440px, calc(100% - clamp(44px, 12.6vw, 184px)));
+}
+@media (max-width: 700px) {
+  html .services-page,
+  html .departments-page {
+    --container: calc(100% - 36px);
+    --contact-container: calc(100% - 36px);
+    --dept-container: calc(100% - 36px);
+  }
+}
+
+/* Services: all three two-column blocks use the same column split and gap as
+   the service directory, so the right-hand column starts at one x everywhere. */
+.services-page .service-groups,
+.services-page .service-directory-heading,
+.services-page .service-detail-inner,
+.services-page .patient-support {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(36px, 6vw, 84px);
+}
+
+/* Departments tablet: the featured image's min-height×aspect set a 392px
+   min-width that overflowed once the content used the reference container.
+   Let it shrink to its column (no colour/imagery change). */
+@media (max-width: 900px) {
+  .departments-page .featured-image,
+  .departments-page .featured-image img { min-width: 0; min-height: 0; width: 100%; }
+}
+
+/* ===========================================================================
+   Footer uniformity (authoritative — beats page sheets loaded after this file).
+   Fixes: Hindi tagline indent, photo-top seam, active-link style.
+   Link set/columns are normalised byte-for-byte in the HTML.
+   =========================================================================== */
+
+/* 1. Hindi tagline aligns to the same left edge as the logo, serving line and
+   NABH badge (overrides the 68px indent in hospital.css). */
+.contact-footer-flow .site-footer .footer-brand > p.hospital-tagline {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+/* 2. Active footer link: same existing text colour, just emphasised. */
+.footer-column a[aria-current="page"],
+.contact-footer-flow .site-footer .footer-column a[aria-current="page"] {
+  color: var(--paper);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* 3. Seamless join: keep navy continuous behind the link band and blend only
+   the top edge of the team photo into it. The photo is the footer background,
+   anchored to the bottom with its top edge at `padding-bottom` above the base;
+   a navy→transparent gradient is laid over that top edge. */
+.contact-footer-flow .site-footer::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  right: 0;
+  /* Anchor so the gradient's TOP sits exactly on the photo's top edge, then
+     fade navy -> transparent downward across the top of the photo. */
+  bottom: calc(100vw * 768 / 1376 - clamp(90px, 14vw, 220px));
+  bottom: calc(100svw * 768 / 1376 - clamp(90px, 14vw, 220px));
+  height: clamp(90px, 14vw, 220px);
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    var(--ink-deep) 0%,
+    var(--ink-deep) 18%,
+    rgb(16 47 72 / 70%) 55%,
+    rgb(16 47 72 / 0%) 100%
+  );
+}
+
+/* ===========================================================================
+   "Let's find your next step." contact section — uniform across every page.
+   Scoped to .contact-section / .contact-footer-flow .stethoscope-transition.
+   =========================================================================== */
+
+/* One stethoscope position on every page: pinned inside the contact section,
+   bottom-right of a reserved band under the content, tube clipped at the right
+   edge. It never overlaps the form, button or copy at any width. */
+.contact-footer-flow > .contact-section { position: relative; overflow: hidden; }
+.contact-footer-flow .stethoscope-transition {
+  position: absolute;
+  left: auto;
+  right: 0;
+  top: auto;
+  bottom: 0;
+  transform: none;
+  align-self: auto;
+  justify-self: auto;
+  grid-area: auto;
+  z-index: 2;
+  width: min(54vw, 760px);
+  height: auto;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}
+/* Reserve room beneath the copy/form so the pinned illustration sits in empty
+   space (never on the button/fields/text). Applied per width via --stetho-h. */
+.contact-section { --stetho-h: 248px; }
+.contact-footer-flow .contact-section .contact-inner {
+  padding-bottom: calc(var(--stetho-h) + clamp(16px, 2vw, 32px));
+}
+@media (max-width: 1024px) { .contact-section { --stetho-h: 181px; } }
+@media (max-width: 768px)  { .contact-section { --stetho-h: 136px; } }
+@media (max-width: 700px)  { .contact-section { --stetho-h: 96px; } }
+
+/* Heading: loosen the tight tracking and stop "step." orphaning. Scoped to
+   this section's heading only. */
+.contact-copy h2 {
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+/* ===========================================================================
+   Colour & link-style consistency (audit fixes).
+   Unifies eyebrows, accent blue, off-white surfaces, secondary text, list
+   rows and non-link underlines across pages. No layout/spacing/type changes.
+   =========================================================================== */
+
+/* (a) One eyebrow style everywhere (most common: base .eyebrow). Page-level
+   colour/size/weight/tracking overrides are neutralised. */
+html .services-page .eyebrow,
+html .departments-page .eyebrow,
+html .about-page .eyebrow,
+html .contact-page .eyebrow,
+html .quality-page .eyebrow,
+html .visiting-service .eyebrow {
+  color: #4e718c;
+  font-size: clamp(8px, .86vw, 12px);
+  font-weight: 500;
+  letter-spacing: .16em;
+}
+/* Remove the accent dash that only Departments had above its headings. */
+.departments-page .section-mark { display: none; }
+
+/* (b) One accent blue for links/arrows/icons (most common: #0878ff).
+   Text-link and list hover colours move from --blue (#537fca) to --accent. */
+.text-link { color: var(--ink-deep); }
+html .text-link .icon,
+html .specialty-list .icon,
+html .department-item .icon,
+html .service-specialty-list .icon,
+html .service-plain-list .icon,
+html .specialty-index .icon,
+html .contact-links .icon { color: var(--accent); }
+.text-link:hover,
+html .services-page .text-link:hover,
+html .about-page .text-link:hover,
+html .specialty-list a:hover,
+html .specialty-index nav a:hover,
+html .about-page .all-specialties:hover,
+html .services-page .service-specialty-list a:hover,
+html .services-page .service-plain-list a:hover,
+html .services-page .service-group-link:hover,
+html .services-page .patient-support-links a:hover,
+html .departments-page .department-item a:hover strong,
+html .departments-page .featured-copy a:hover { color: var(--accent); }
+/* Accent eyebrow was covered above (now slate). Keep nav/footer hover as accent. */
+.utility-inner a:hover,
+.desktop-nav a:hover,
+.footer-column a:hover { color: var(--accent); }
+
+/* (c) Two off-white surfaces only, as variables. */
+.space-section { background: var(--surface-warm); }
+.service-detail-section { background: var(--surface-cool); }
+.contact-section { background: var(--surface-warm); }
+
+/* (d) One secondary text colour (>=4.5:1) across pages. */
+html .about-page .approach-description,
+html .about-page .approach-value p,
+html .about-page .people-copy > p:not(.eyebrow),
+html .about-page .faq-heading > p:not(.eyebrow),
+html .about-page .faq-item > p,
+html .about-page .services-heading > p,
+html .about-page .about-hero-copy > p:not(.eyebrow),
+html .about-page .hospital-objectives,
+html .about-page .hospital-objectives li,
+html .services-page .service-group-heading p,
+html .services-page .service-detail-intro,
+html .services-page .service-detail-list span,
+html .services-page .patient-support-heading > p:last-child,
+html .services-page .patient-support-links small,
+html .services-page .service-directory-tools > p,
+html .services-page .services-hero-summary p,
+html .departments-page .department-item-copy span,
+html .departments-page .featured-copy > p,
+html .visiting-service p:not(.eyebrow),
+html .journal-heading > p,
+html .team-card p,
+html .space-copy > p:not(.eyebrow),
+html .contact-copy > p:not(.eyebrow),
+html .hero-summary p,
+html .contact-inquire .inquire-label { color: var(--text-secondary); }
+
+/* (e) One list-row arrow colour + hover (navy text, accent arrow). */
+.specialty-list .icon { color: var(--accent); }
+.specialty-list a:hover { color: var(--accent); }
+
+/* (f) Remove underlines from labels that are not links. */
+html .home-page .journal-tag { text-decoration: none; }
+html .our-people-page .doctor-speciality span { text-decoration: none; }
+
+/* Remaining link hover states: same single accent (were --blue #537fca). */
+html .contact-links a:hover,
+html .footer-legal a:hover,
+html .breadcrumb a:hover { color: var(--accent); }
+
+/* ===========================================================================
+   Search / filter controls — one consistent style (audit fixes).
+   Shared: 48px height, 1px #b9c5ce border, 4px radius, white bg, 12px inline
+   padding, 11px gap, 19px accent icon on the LEFT, flat (no shadow),
+   13px #798a98 placeholder, accent focus ring. CSS-only; no HTML/JS changes.
+   (html-prefixed so it wins over page sheets loaded after styles.css.)
+   =========================================================================== */
+html .specialty-search,
+html .service-search,
+html .department-search,
+html .our-filter-toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 11px;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 12px;
+  border: 1px solid #b9c5ce;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: none;
+}
+html .specialty-search { flex-direction: row-reverse; width: clamp(190px, 28vw, 380px); }
+html .service-search { width: 100%; }
+html .department-search { width: min(100%, 415px); }
+html .our-filter-toggle { width: clamp(190px, 28vw, 380px); }
+html .our-filter-toggle { font-size: 13px; font-weight: 400; color: #18364f; text-align: left; cursor: pointer; }
+html .specialty-search button,
+html .specialty-search .icon,
+html .service-search .icon,
+html .department-search .icon,
+html .our-filter-toggle .icon {
+  flex: 0 0 auto;
+  width: 19px;
+  height: 19px;
+  max-width: none;
+  color: #0878ff;
+  stroke-width: 2;
+}
+html .specialty-search button {
+  display: grid;
+  place-items: center;
+  width: 19px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #0878ff;
+  cursor: pointer;
+}
+html .specialty-search button .icon { width: 19px; height: 19px; color: #0878ff; }
+html .specialty-search input,
+html .service-search input,
+html .department-search input {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 400;
+  color: #18364f;
+}
+html .specialty-search input::placeholder,
+html .service-search input::placeholder,
+html .department-search input::placeholder { color: #798a98; opacity: 1; font-size: 13px; }
+html .our-filter-value { flex: 1 1 auto; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+html .our-filter-chevron { flex: 0 0 auto; width: 13px; height: 13px; }
+
+/* One focus style for all four. */
+html .specialty-search:focus-within,
+html .service-search:focus-within,
+html .department-search:focus-within,
+html .our-filter-toggle:focus-within,
+html .our-filter-toggle[aria-expanded="true"] {
+  outline: 0;
+  border-color: #0878ff;
+  box-shadow: 0 0 0 3px #0878ff1c;
+}
+
+/* ===========================================================================
+   Departments A–Z index — muted letters with no departments; clear active/
+   hover state. CSS-only (no JS); the department initial letters are A,G,O,P,U.
+   =========================================================================== */
+html .departments-page .department-alphabet button { color: var(--ink-deep); }
+html .departments-page .department-alphabet button[data-letter="b"],
+html .departments-page .department-alphabet button[data-letter="c"],
+html .departments-page .department-alphabet button[data-letter="d"],
+html .departments-page .department-alphabet button[data-letter="e"],
+html .departments-page .department-alphabet button[data-letter="f"],
+html .departments-page .department-alphabet button[data-letter="h"],
+html .departments-page .department-alphabet button[data-letter="i"],
+html .departments-page .department-alphabet button[data-letter="j"],
+html .departments-page .department-alphabet button[data-letter="k"],
+html .departments-page .department-alphabet button[data-letter="l"],
+html .departments-page .department-alphabet button[data-letter="m"],
+html .departments-page .department-alphabet button[data-letter="n"],
+html .departments-page .department-alphabet button[data-letter="q"],
+html .departments-page .department-alphabet button[data-letter="r"],
+html .departments-page .department-alphabet button[data-letter="s"],
+html .departments-page .department-alphabet button[data-letter="t"],
+html .departments-page .department-alphabet button[data-letter="v"],
+html .departments-page .department-alphabet button[data-letter="w"],
+html .departments-page .department-alphabet button[data-letter="x"],
+html .departments-page .department-alphabet button[data-letter="y"],
+html .departments-page .department-alphabet button[data-letter="z"] {
+  color: #b9c5ce;
+  cursor: default;
+  text-decoration: none;
+}
+html .departments-page .department-alphabet button[aria-pressed="true"] {
+  color: #0878ff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+/* Hover on letters that DO have a department (A,G,O,P,U). */
+html .departments-page .department-alphabet button[data-letter="a"]:hover,
+html .departments-page .department-alphabet button[data-letter="g"]:hover,
+html .departments-page .department-alphabet button[data-letter="o"]:hover,
+html .departments-page .department-alphabet button[data-letter="p"]:hover,
+html .departments-page .department-alphabet button[data-letter="u"]:hover,
+html .departments-page .department-alphabet button[aria-pressed="true"]:hover {
+  color: #0878ff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ===========================================================================
+   About / Our team hero — match the "OUR APPROACH" eyebrow→heading gap and
+   give both heroes the same header→eyebrow top padding. Scoped to these two
+   heroes only. (The extra gap was the UA default h1 margin-top, 0.67em ≈ 48px.)
+   =========================================================================== */
+
+/* 1. One gap source: eyebrow margin-bottom = reference clamp; zero the H1
+   margin so nothing stacks on top. (html prefix beats page sheets.) */
+html .about-hero-copy .eyebrow,
+html .our-hero-copy .eyebrow { margin-bottom: clamp(8px, .9vw, 13px); }
+@media (max-width: 700px) {
+  /* match the reference's mobile eyebrow gap exactly */
+  html .about-hero-copy .eyebrow,
+  html .our-hero-copy .eyebrow { margin-bottom: 9px; }
+}
+html .about-hero-copy h1,
+html .our-hero-copy h1 { margin: 0; }
+
+/* 2 & 4. Top-align the copy group with one consistent top padding so the
+   eyebrow sits ~24–40px below the header on both pages; the eyebrow, H1 and
+   paragraph stay together as one group with a tight H1→paragraph gap. */
+html .about-hero,
+html .our-hero {
+  align-items: flex-start;
+  padding-top: clamp(24px, 2.6vw, 36px);
+  padding-bottom: clamp(24px, 2.6vw, 36px);
+}
+html .about-hero-copy,
+html .our-hero-copy { padding-top: 0; padding-bottom: 0; }
+html .about-hero-copy > p:not(.eyebrow),
+html .our-hero-copy > p:not(.eyebrow) { margin-top: clamp(16px, 1.6vw, 24px); }
+
+/* 3. About hero: widen the text column so the H1 wraps to <=3 lines and clears
+   the right edge, by reducing the left inset (image width/position unchanged;
+   the copy is layered over the faded right side). */
+@media (min-width: 701px) {
+  html .about-hero-copy { padding-left: 52%; }
+  html .about-hero-copy h1 { max-width: 9em; }
 }
